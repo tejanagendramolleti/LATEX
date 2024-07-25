@@ -1,0 +1,1289 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%======================================================%%
+%% to compile with pdflatex/xelatex use pdflatex option %%
+%%======================================================%%
+
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+\documentclass[sn-mathphys]{sn-jnl}% Math and Physical Sciences Reference Style
+%\usepackage{tikz}
+%%\documentclass[sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[sn-vancouver]{sn-jnl}% Vancouver Reference Style
+%%\documentclass[sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+%%\documentclass[sn-standardnature]{sn-jnl}% Standard Nature Portfolio Reference Style
+%%\documentclass[default]{sn-jnl}% Default
+%%\documentclass[default,iicol]{sn-jnl}% Default with double column layout
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+\jyear{2021}%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+\begin{document}
+
+\title[Article Title]{Automatic Detection of Cephalometric Landmarks using Convolutional Neural
+Networks}
+
+%%=============================================================%%
+%% Prefix	-> \pfx{Dr}
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% NatureName	-> \tanm{Poet Laureate} -> Title after name
+%% Degrees	-> \dgr{MSc, PhD}
+%% \author*[1,2]{\pfx{Dr} \fnm{Joergen W.} \spfx{van der} \sur{Ploeg} \sfx{IV} \tanm{Poet Laureate} 
+%%                 \dgr{MSc, PhD}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author*[1,2]{\fnm{First} \sur{Author}}\email{iauthor@gmail.com}
+
+\author[2,3]{\fnm{Second} \sur{Author}}\email{iiauthor@gmail.com}
+\equalcont{These authors contributed equally to this work.}
+
+\author[1,2]{\fnm{Third} \sur{Author}}\email{iiiauthor@gmail.com}
+\equalcont{These authors contributed equally to this work.}
+
+\affil*[1]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{100190}, \state{State}, \country{Country}}}
+
+\affil[2]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{10587}, \state{State}, \country{Country}}}
+
+\affil[3]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{610101}, \state{State}, \country{Country}}}
+
+%%==================================%%
+%% sample for unstructured abstract %%
+%%==================================%%
+
+\abstract{Cephalometric analysis is one of the most important tools in orthodontic diagnosis and treatment planning.To accomplish this, it requires manual marking of x-ray and plotting landmarks.The manual marking of landmarks is time taking and requires experts.Artificial intelligence is progressing quickly.Deep learning is the emerging area in artificial intelligence where as machine learning approach concentrates on designing hand-crafted features.We have proposed approaches for automatic landmark prediction system which is based on a deep learning models which is CNN (Convolutional Neural Network).We use a publicly available dataset of cephalometric x-ray image with manually annotated 19 landmark positions to train CNNs for recognizing patterns of landmark appearance.We employed different architectures of CNN model with ReLu activation function and divided the process into two and three stages considering the landmark detection as a regression problem.The pixels are normalized and the images are downsampled to smaller size to detect all 19 landmarks in each image. In the subdivided approach , we first tried to remove the irrelevant area of image by cropping it then this image is used to locate initial positions of all the landmarks. In the last stage we refine the predicted initial positions for each landmark.The models are evaluated and compared by calculating the euclidean distance between predicted landmark points and the ground truth points.}
+
+%%================================%%
+%% Sample for structured abstract %%
+%%================================%%
+
+% \abstract{\textbf{Purpose:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Methods:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Results:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}
+
+\keywords{keyword1, Keyword2, Keyword3, Keyword4}
+
+%%\pacs[JEL Classification]{D8, H51}
+
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+
+\maketitle
+
+\section{Introduction}\label{Introduction}
+\textbf{Cephalometry} is the study and measurement of the head, usually the human head, typically by clinical imaging such as radiography. Cephalometric analysis is done on  X-ray images.Landmark detection in cephalometric is the essential procedure used in  orthodontics and orthognathic treatment and also for plastic surgery planning.
+
+\par For diagnosis and treatment planning , landmark detection of surrounding soft tissue and the skull in cephalograms is important.It is a difficult problem because skull is a very complicated 3D structure and for cephalogram analysis this is projected into 2D plane which causes skull and soft tissues to overlap.
+ 
+\par Usually in clinical practice orthodontist's mark the landmarks in 2D high resolution X ray image of cephalogrmas.But manual annotation of landmarks is tedious , require long time and is unreliable.Due to overlapping of the skull and soft tissue  manual annotation of one image even by an experienced orthodontist takes about 20 to 30 minutes.There are inter and inter and intra-observer variabilities in manual markings which can affect the treatment planning because of  sensitivity in landmarks.
+
+\par Thus, automatic cephalometric landmark detection is the solution to the above mentioned  problems.It would help reduce time consumption and observer variabilities within and between observation.The orthodontic softwares calculate automatically landmark-based linear and angular measurements if the landmark positions are given.Therefore, if a computer based detection system was able to detect cephalometric landmarks with required accuracy then it can significantly improve the medical work flow in orthodontic treatment.Also,the learned system have the problem of overfitting because the dataset of medical imaging for training is mainly small because annotation costs are high, and causes poor performance on test data.
+        
+\par In this paper, we have tried to detect 19 landmarks consisting of (x , y) coordinates in the lateral cephalograms in dataset of 400 X-ray images.Artificial neural network (ANN) is an artificial intelligence approach, that imitates neural networks in living things.The optimization of ANN with many layers is called deep learning. Convolution neural network is a deep learning method which has one or many convolutional layers.CNNs have been performing better in image recognition. Different architecture of CNN models are used.
+\par CNN has been efficiently verified for a various applications such as human pose estimation,image alignment,  facial landmark detection , lane detection,image classification and image segmentation.In some of these applications, the performance of CNNs has even exceeded human performance.CNNs have shown success in the areas where data is available abundantly for training.Thus, we have experimented with different CNN model architectures for  cephalometric  landmark detection.We have calculated the MRE(Mean Radial Error) and SDR (Successful Detection Rate) for each landmark and used it for comparison between different models.The lower MRE value means the model is able to detect landmarks with less error. 
+
+\subsection{Problem Definition}
+The automatic anatomical landmarks identification in cephalograms is poorly explored and difficult also, due to the variability and complexity of cephalometric X-ray images.In clinical practice the manual markings are done which is time taking and subjective due to variabilities in marking among observers.Due to overlapping of the skull and soft tissue in the X-ray images manual annotation of one image takes about 20 to 30 minutes.Large errors in the landmark detection affects the treatment planning.Thus, automatic detection is much more required to reduce the time as well as the errors.The major benefit of automatic detection would be the faster results which will lead to fast and better treatment planning.
+
+\par We have build CNN based models to detect the 19 landmarks as accurately as possible on lateral cephalogrmas using dataset containing 400 X-ray images and 19 landmarks of each image.The landmark annotations are marked manually by experienced orthodontists. 
+
+\subsection{Motivation and Objective}
+Cephalometric analysis has major role in orthodontics but there had been constraints concerning the accuracy and reliability of cephalometric landmark detection.Various attempts on growing automatic landmark detection systems have constantly been made but they are inadequate for medical applications because of low reliability and accuracy of precise landmarks because some landmarks are difficult to detect for model.Nowadays, computer based systems of cephalometric have been introduced but the marking and tracing still needs to be done on the monitor display which is tedious and time consuming.
+
+\par Deep learning is one of the most emerging area in AI. Thus, we have come with automatic landmark predicting system based on CNN which ic a deep learning neural network.The main objective is to create an efficient CNN model to automate the landmark detection system can reduce the time and difficulty.Our objective is to detect the landmarks with as less error as possible.
+
+
+The thesis starts with the introductory concepts of cephalometric analysis,followed by the problem statement, research motivation and objectives. The contribution to this work starts from the chapters as mentioned below:-
+
+\begin{itemize}
+
+\item[i.] \textbf{Introduction}\index{Introduction}\\
+This chapter briefly describes about the cephalometric landmark detection and its medical application, motivation and objectives for our work. We have also described about reliability and the problem definition of cephalometric landmark detection model.
+
+\item[ii.] \textbf{Literature Review}\index{Literature Review}\\
+The contributions made by different researchers in the field of automatic cephalometric landmark detection using various deep learning and machine learning techniques is mentioned in this chapter.
+
+\item[iii.] \textbf{ Framework for Landmark Detection in Cephalogrmas}\index{Framework for Landmark Detection in Cephalogrmas}\\
+This chapter presents the framework for proposed approaches for landmark detection in cephalogrmas . In this
+chapter, we have described about the approaches used for detection .We have also described about the dataset used in this project and the evaluation metrics used for analysing the models performance.
+
+\item[iv.] \textbf{Cephalometric Landmark Detection based on CNN}\index{Cephalometric Landmark Detection based on CNN}\\
+This chapter describes the first approach used for  landmark detection model based on simple 1-stage CNN model.We have discussed the architecture of model used in this approach and how the training and testing operations are performed. In this
+chapter, we have calculated the Radial Error or loss , MRE and SDR  for the proposed model.
+
+\item[v.] \textbf{ Cephalometric Landmark Detection based on 2-stage CNN}\index{Cephalometric Landmark Detection based on 2-stage CNN}\\
+This chapter describes approach used for  landmark detection model based on 2-stage CNN model.The sub division of problem into 2 stages is described.We have discussed the architecture of model used in this approach and how the training and testing operations are performed. In this chapter, we have calculated the Radial Error or loss , MRE and SDR  for the proposed model.
+
+\item[vi.] \textbf{ Cephalometric Landmark Detection based on 3-stage CNN}\index{Cephalometric Landmark Detection based on 3-stage CNN}\\
+This chapter describes the first approach used for  landmark detection model based on 3-stage CNN model.The 3rd stage was introduced to improve the performance of landmark detection which is described here. We have discussed the architecture of model used in this approach and how the training and testing operations are performed. In this chapter, we have calculated the Radial Error or loss , MRE and SDR  for the proposed model.
+
+\item[vii.]\textbf{Performance Comparison}\index{Performance Comparison}\\
+In this chapter, we have compared all the proposed approach based on CNN model by analysing the results.We have tried to find out which approach gives the best result.
+
+\item[viii.] \textbf{Conclusion and Future Work}\index{Conclusion and Future Work}\\
+This chapter presents the inference drawn from the work carried out. This also throws some light on the future research that can be done addressing various limitations and other concerns that are related to the area of landmark detection. Each dissertation must be arranged in the following serial order. Optional pages may not be included.
+\end{itemize}
+
+\section{Literature}\label{Literature_survey}
+Cephalometric Landmark Detection is of great interest among the researchers because of its requirement in medical field and to reduce the time and difficulty.Recently, even after the limited availability of dataset of training images with annotation in the clinical imaging fields, many approaches based on Machine learning and deep learning were proposed to solve landmark detection problem successfully.Therefore the need for automatic marking system has constantly been raised by Wang et al. \cite{wang2015evaluation}  
+
+Lindner et al. \cite{lindner2016fully} developed and validated a fully automatic landmark annotation (FALA) system.The FALA system follows machine learning approach which uses Random Forest regression-voting  that detects scale ,orientation and position of the skull based on patch. Then, in the second step Constrained Local Model framework (RFRV-CLM),is used which refines each landmarks.The FALA system copies the manual marking approach,thus the accuracy of  evaluation of system is limited by the manual marking accuracy. 
+
+\par Payer et al.\cite{PAYER} developed a Fully Convolutional Spatial Configuration-Net (SCN) in which first component was used for predicting locally accurate candidate landmarks , and the second component includes the spatial configuration of landmarks which improved robustness to ambiguious landmark.It combines the outputs of both the interacting components by multiplying the predictions of both  the components, when they train the FCNN architecture which is based on heatmap regression.
+
+\par Noothout et al.\cite{noothout2020deep} used (FCNNs) Fully Convolutional Neural Networks to employ localization approach .In the global landmark localization,FCNN performs analysis  of full input image patches and detects the location of each landmarks.In the local analysis, the refinement of location of individual landmark is done by FCNN.During analysis it also performs regression and classification simultaneously.ResNet34 is used on global FCNN.
+
+\par Kanghan Oh et al. \cite{oh2020deep} presents a  “Deep Anatomical Context Feature Learning (DACFL)”  framework so that it can learn  anatomical and local context features simultaneously during training.DACFL approach consists of two components, the (LFP) local feature perturbator  and the (AC loss) anatomical context loss .The model is based on  FCNN-based laplace heatmap regression.LFP based on prior anatomical distribution perturbs X-ray images.Then AC loss based on spatial relationships between the landmarks enabkes the CNN to acquire knowledge of the anatomical context feature.
+
+\par Wang et al.\cite{wang2018automatic} proposed, method of multi-resolution decision tree regression voting (MDTRV) using patch features based on SIFT (Scale invariant feature transform).SIFT constructs the difference-of-Gaussian image pyramids to detect local extrema point.The SIFT feature vectors  are used to represent patches of image, which is used for mapping patches to the displacements of each landmark by a regressor. It has the capability to take the advantage of information of image in different resolutions.
+
+\par Chen et al. \cite{chen2019cephalometric}  proposed a model consisting of 3 sequential modules: feature extraction module,APFP module and prediction module.AFPF (Attentive feature pyramid fusion) module shapes  semantically enhanced and high-resolution fusion features.Extraction module uses VGG-19 and utilizes self-attention method for learning weights.It also combines the offset maps and heat maps which performs regression-voting on each pixels to enhance detection accuracy.  
+
+\par CephaNN is a multi-head attention neural network based on heatmaps used for landmark. Qian et al. \cite{qian2020cephann} in the multi-head part, adopted two Unet-shape subnets which learn features  and applies in-between supervision that can advance the  convergence.And the attention part generates multi-attention feature maps for refinement of the detected result from the multi-head part.To solve the class imbalance problem ,Region Enhancing(RE) loss is used which enhances efficient regions.   
+
+\par Lee et al. \cite{lee2020automated} developed a model using Bayesian Convolutional Neural Networks (BCNN) with confidence regions which is based on uncertainties.This approach uses 2 process: Low-Resolution Screening (LRS) and High Resolution Screening (HRS).The complete algorithm is based on extraction of region of interest (ROI)  of landmarks which is done by LRS and HRS estimates the landmarks considering uncertainty . Bayesian model deals with post processing methods of pixel probabilities and uncertainties to predict landmarks.It provided 95\% confidence region of each landmark thus efficiently reduces time by reducing the area of consideration for decision making by clinicians.
+
+\par Song et al. \cite{song2020automatic} registers  testing image to training images to extract the region of interest (ROI)patch (similar to \cite{lee2020automated}) for each landmark . It uses pre-trained networks which uses  ResNet50 as backbone, for detecting each landmark in ROI patch.One patch detects only one landmark.One model is trained for one landmark.Thus,19 models were created to detect 19 landmarks.
+
+% \par Kim et al. \cite{kim2020web} proposed a web-based application.This paper built its own dataset which consists of 2,075 lateral X-ray images and 23 landmarks ground truth positions.The 19 landmarks were as defined in the ISBI 2015 dataset\cite{wang2015evaluation} and the rest 4 landmarks were added which are relative to first molar.The proposed algorithm consists of two stages that uses the (Stacked Hour Glass) SHG model. The SHG model has an identical structure in both stages, which is made of four stacked hourglass-shaped modules. Only the mapping of number of output feature are different in both stages.For comparing the predicted heatmap with a ground truth heatmap, they applied sigmoid cross-entropy loss.They also developed web-based application of the proposed approach to enhance the accessibility without considering the user’s computer hardware.
+
+\par Kim et al. \cite{kim2020web} proposed a web-based application.They built their own dataset  of 2,075 lateral X-ray images and 23 landmarks ground truth positions.The proposed algorithm consists of two stages that uses the (Stacked Hour Glass) SHG model made of four stacked hourglass-shaped modules.The SHG model has an identical structure in both stages but the mapping of number of output feature are different in both stages.They applied sigmoid cross-entropy loss for comparison.They also developed web-based application of the proposed approach to enhance the accessibility without considering the user’s computer hardware.
+
+\par Zeng et al.  \cite{zeng2021cascaded} develoed an approach which is a cascaded 3-stage CNN model.The 3 stages are:align net , proposal net and refine net.In the first stage,crops the image to extract high-level image features which deals with the problem of visual variations.In the next stage,the cropped face area is processed which predicts the initial positions of all the landmarks.At the 3rd stage, refinement of individual landmarks are done by  extracting data from high-resolution image from around their initial positions detected by the previous stage to get better accuracy. 
+
+
+\par Mostly all the papers except some have used the dataset of 300 images from IEEE ISBI 2014 challenge \cite{wang2015evaluation} or 400 images from IEEE ISBI 2015 challenge.Both dataset have 19 landmark annotation of each image.Most of the paper have used the deep learning based approach, CNN model \cite{nishimoto2019personal} and many have used it along with shape model \cite{arik2017fully} to detect landmarks and have achieved better accuracy within the clinically accepted range of 2mm.
+
+\section{Framework for Landmark Detection in Cephalograms}\label{Dataset}
+
+Automatic Cephalometric Landmark Detection is of great importance in clinical area to reduce the time and difficulty which arises in manual annotation.
+
+
+\subsection{Proposed Approach}
+We have proposed an approach for predicting 19 landmarks in the X-ray images using deep learning technique i.e, CNN.We have  developed two different models of CNN.In the first approach, we developed a novel single stage CNN model.In the second approach, we have developed 2 stage CNN model.In the 3rd approach we introduced a new stage for refinement of results of 2-stage model as well as performed the data augmentation.We also normalized the pixels of image by dividing the pixel value by 255.In all approaches, trained it with the X-ray images and annotated 19 landmarks of each image to get better accuracy.
+
+\subsection{Dataset Description}
+The dataset used in this project consists of 400 lateral cephalogram images provided by IEEE ISBI 2015 \cite{wang2015evaluation} challenge.It is the public dataset which is provided for cephalometric landmark detection.This dataset  also provides manually labelled two coordinate (x,y) sets of 19 landmarks of all 400 images(age range : 7-76 years).The manual labelling is done by two doctors(junior and senior orthodontic specialists).The manual annotations have 1.73 and 0.90 mm  intra-observer variabilities for two doctors.Therefore the average of both labelling was taken as the groundtruth landmark labels  to compensate inter-observer variability.
+
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=12cm]{Figures/landmarks.png}
+    \caption{Cephalogram Landmarks of image 001 provided in ISBI 2015 challenge}
+    \label{figure 3.1:landmarks}
+\end{figure}
+
+
+
+\par The images have the resolution of a 1935 × 2400 pixels , and one pixel is equal to 0.1 mm length.Each of the pixel have a single channel RGB value range in [0, 255].Out of 400 X-ray images ,150 images was used for training , another 150 images for validation and remaining 100 images for testing.Train and Test1 dataset are used during training whereas Test2 is completely unseen dataset.The 19 landmarks to be detected on cephalograms  shown in Figure \ref{figure 3.1:landmarks} are as follows:sella  nasion, porion, orbitale, subspinale, supramentale, gnathion, pogonion, menton, gonion,lower incisal incision, upper incisal incision,turcica, upper lip, lower lip, subnasale, soft tissue pogonion, posterior nasal spine, articulate and anterior nasal spine.
+
+\subsection{Evaluation Metric}
+The evaluation metric used in this thesis is adopted from the evaluation metrics provided by ISBI 2015 challenge \cite{wang2015evaluation} standards which consists of MRE (Mean Radial Error) and SDR (Success Detection Rate) with in the range of 2mm,2.5mm,3mm and 4mm.
+
+
+\par
+\subsection{Radial Error (RE) }
+Given the \begin{math}i^{th}\end{math} landmark of \begin{math}j^{th} \end{math}  image  , the radial error (RE)  is the Euclidean Distance between the manually annotated landmark coordinates, i.e., the ground truth value \begin{math} Y_{i} = (x_{i},y_{i})\end{math} and estimated landmark coordinates\begin{math}
+\hat{Y_{i}} = (\hat{x_{i}},\hat{y_{i}})\end{math} .
+\par
+\begin{equation}
+RE_i^{j} = \left \| \hat{Y}_i - Y_i \right \|_2
+\end{equation}
+
+where \begin{math} \left \| . \right \|_2 \end{math}
+ is the Euclidean norm function and \begin{math}
+ RE_i^{j}
+ \end{math} denotes the radial error of \begin{math}
+ i^{th}
+ \end{math} landmark and \begin{math}
+ j^{th}
+ \end{math} image . 
+
+
+\subsection{Mean Radial Error (MRE)}
+ The mean radial error (MRE) of \begin{math} i_{th} \end{math} landmark is shown in Eq. (3.2), where N is the number of images.
+\par
+\begin{equation}
+    MRE_{i} = \frac{\sum_{j=1}^{N}RE^{j}_{i}}{N}
+\end{equation}
+
+
+And standard deviation of each landmark is given as:
+\par
+\begin{equation}
+    SD_{i} = \sqrt{\frac{\sum_{j=1}^{N}(RE^{n}_{i} - MRE_{i})^{2}}{N}}
+\end{equation}
+
+\subsection{Success detection rate (SDR)} For each landmark, If the radial error between detected landmark and the ground truth value is less than and equal to z mm,then it can be considered as a successful detection. The success detection rate for z mm is as shown below:
+\begin{equation}
+    SDR_z = \frac{ \#(\{{\hat{Y}_i}:\left \| \hat{Y}_i - Y_i \right \|_{2} \leqslant z\})} {\#(\Omega)}
+\end{equation}
+
+where \#(·) is the cardinal function and \begin{math} \Omega \end{math} is the number of images.
+
+
+\section{Cephalometric Landmark Detection based on CNN}\label{single_stage_CNN}
+\subsection{Overview}
+CNN is an algorithm that takes an input image , assign learnable  weights and biases to various objects of image and differentiates one from another.CNNs extract features from images .Deep learning techniques have 3 layers.The layers of CNNs used for image processing  is shown in figure \ref{figure 4.1:CNN}:
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=11cm]{Figures/CNN.png}
+    \caption{Basic CNN Architecture}
+    \label{figure 4.1:CNN}
+\end{figure} 
+
+The 1st layer is the input layer which takes a grayscale or RGB image.The 2nd layer is the hidden layers consisting of convolution layers, the pooling layers,ReLU (rectified linear unit) layers and a fully connected Neural Network (FCNN).The 3rd layer is Output layer which is a binary or multi-class labels.CNN is considered to perform best for image processing and recognition application because it imposes local connectivity patterns to exploit spatial local correlation.CNN has used successful in many practical fields, which includes speech
+recognition, image classification and natural language processing.
+
+\par We have proposed the automated  framework for cephalogram landmark detection using deep learning technique i.e., CNN model.Automated cephalometric analysis performance very much depends on how much it is capable to recognize particular appearance patterns which corresponds to anatomical landmarks location.We have modeled the landmark appearance using CNN in which candidate neighbourhood is processed in multilayer architecure.
+
+\subsection{Model Architecture}
+ We have made 6 layers in the model architecture.1st and last layers are the input and output layers and rest 4 in between the input and output layers are the hidden layers.Our model is build from repetitive implementation of these 5 layers:
+ 
+ \begin{itemize}
+     \item Convolution Layers with filters
+     \item Batch Normalization
+     \item Max Pooling
+     \item Non-linear activation function : ReLu [f(x) = max(0,x)]
+     \item Dense Layer or Fully Connected Neural Networks (FCNN)
+ \end{itemize}
+ 
+ \par The convolution operation outputs a measured spatial similarity of the  image with Kernel filter.CNNs learn those filters which gets activated on seeing a specific kind of image pattern at any spatial position in the output of the previous layer.The input layer has Convolution 2D layer of kernel size 3 × 3 with strides 1 × 1 and batch normalization then 2D maxpooling layer.The stride define the step size to be taken by the kernel when traversing features of image.The input layer is fed with the RGB image of size 256 × 256 × 3. In this model,five convolution layers of size 64, two of size 128 and last convolution layer of size 256 with kernels of size 3 × 3 is used.The 1st four layers of model have maxpooling layer.Batch normalization is applied before each convolution layer and  uses ReLu(Rectified Linear Unit) activation function .To enhance the learning rate and for avoiding internal covariate shift ,  we have applied 2-D convolution layers which is followed by batch normalization.The last layer's outputs are fully connected to a group of neurons i.e., to FCNN or Dense layers which can classify the input to the network.The output layer performs the flattening of the input received from previous layer and dense layer or fully connected convolution network(FCNN) of size 1024 with ReLu activation followed by batch normalization then followed by Dense layer of output size of image.The proposed model architecture is shown in Figure \ref{figure 4.2:CNN_arch} where  ReLU is Rectified Linear Unit activation function, BN is batch normalization, Conv is convolution ,DL is Dense Layer and MP is max pooling.
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=11cm]{Figures/CNN_arch.jpg}
+    \caption{Architecture of proposed CNN model}
+    \label{figure 4.2:CNN_arch}
+\end{figure} 
+
+ 
+ \par Non-linear activation layer , ReLu applies element wise non-linear function to increase the strength of prediction in CNN.The nonlinear function is chosen  on the basis of required output range.The pooling layer is applied for avoiding growth of the number of parameters and for down sample of the resulting outputs.The mostly used pooling operation is max-pooling, which selects the maximum pixel value, in a small window. We have used MaxPooling of size 2 × 2 with strides of 2 × 2 which will output the maximum from four values in each 2 × 2 block. 
+ 
+ \par The ReLu activation function gives 0 if output is negative and if positive returns the output as it is. It is used to achieve non-linear transformation of data.ReLu's are widely used because they are easy to use on GPU's , don't suffer from vanishing gradients.
+ 
+ 
+ 
+ \subsection{Training}
+For training, we have used 150 X-ray images and 150 X-ray images for validation and 100 images  with 19 manually annotated landmarks as ground truth values.The model shown above is built using Keras with TensorFlow as backend on Python.To reduce the calculation process the image of size 1935 × 2400 is resized to square of size 256 × 256. Then, normalize the image pixels ,every pixel is considered to range from 0 to 255.Each pixel value is equal to 0.1mm. The training and testing images with their corresponding labels are fed to model giving the input and output size to get the required output of 38 points (19 landmarks with two points (x,y) ) of each image.
+ 
+The landmarks predicted by this model for one of the image of training and one of testing are shown in Figure \ref{figure 4.3:train002} and Figure \ref{figure 4.4:test305} respectively where red dots are predicted landmarks and blue dots are groundtruth landmarks.
+% \begin{figure}[htp]
+%     \centering
+%     \includegraphics[width=8cm]{Chap04/predicted_002.png}
+%     \caption{Train-002}
+%     \label{figure 4.3:train002}
+% \end{figure} 
+
+% \begin{figure}[htp]
+%     \centering
+%     \includegraphics[width=8cm]{Chap04/305.png}
+%     \caption{Test2-305}
+%     \label{figure 4.4:test305}
+% \end{figure} 
+
+
+
+\begin{figure}[!tbp]
+  \centering
+  \begin{minipage}[b]{0.4\textwidth}
+    \includegraphics[width=7cm]{Figures/predicted_002.png}
+    \caption{Predicted and actual landmarks on Train-002 image}
+     \label{figure 4.3:train002}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.4\textwidth}
+    \includegraphics[width=7cm]{Figures/305.png}
+    \caption{Predicted and actual landmarks on Test2-305 image}
+    \label{figure 4.4:test305}
+  \end{minipage}
+\end{figure}
+
+
+\subsection{Evaluation}
+The model directly outputs 38 points of each raw image given as input and the dataset already has 38 points of all images.We directly find the result by using the evaluation metric between predicted result  \begin{math}  \hat{Y} \in \mathbb{R}^{38} \end{math} and the ground truth values \begin{math} Y \in \mathbb{R}^{38}\end{math}.
+ 
+ 
+ \subsection{Result}
+In this section, we are going to discuss on the results of the our simple CNN model on landmark detection.We use tables to
+express the result.We are going to evaluate the performances of our proposed model which is trained for 2500 epochs. Here, we have taken two performance measures, such as: MRE(Mean Radial Error) and SDR (Success Detection Rate) for the range of 2mm,2.5mm,3mm and 4mm.The results of both the dataset i.e., Test1 contains 150 images and Test2 contains 100 images shown in table \ref{table:4.1} and table \ref{table:4.2} respectively.
+ 
+
+ 
+ 
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{llrrrr}
+\toprule
+&                \textbf{MRE}         &            &  \textbf{SDR} &\\
+    &             \textbf{(mm)}&       \textbf{2mm} &       \textbf{2.5mm} &       \textbf{3mm}&       \textbf{4mm} \\
+\midrule
+  L1 &   3.08 ± 2.108 &  30.667 &  44.000 &  55.333 &  77.333 \\
+  L2 &  3.558 ± 2.197 &  26.000 &  36.000 &  44.667 &  64.667 \\
+  L3 &  3.674 ± 1.609 &  12.667 &  22.000 &  35.333 &  63.333 \\
+  L4 &  4.115 ± 2.437 &  16.000 &  24.000 &  33.333 &  51.333 \\
+  L5 &  4.136 ± 1.956 &  12.667 &  16.667 &  26.000 &  52.000 \\
+  L6 &  4.043 ± 2.804 &  20.000 &  28.000 &  38.667 &  57.333 \\
+  L7 &  4.025 ± 2.989 &  19.333 &  30.667 &  40.667 &  63.333 \\
+  L8 &  4.189 ± 3.122 &  13.333 &  26.000 &  42.667 &  61.333 \\
+  L9 &  4.161 ± 3.029 &  16.667 &  28.000 &  40.667 &  57.333 \\
+ L10 &  3.645 ± 2.029 &  22.000 &  33.333 &  42.667 &  61.333 \\
+ L11 &  3.774 ± 2.421 &  22.000 &  28.000 &  40.000 &  66.000 \\
+ L12 &  3.848 ± 2.095 &  16.667 &  25.333 &  37.333 &  64.000 \\
+ L13 &  4.106 ± 2.382 &  18.000 &  28.000 &  36.000 &  60.000 \\
+ L14 &  4.396 ± 2.916 &  22.667 &  28.667 &  32.667 &  47.333 \\
+ L15 &  3.942 ± 2.093 &  18.000 &  27.333 &  37.333 &  56.000 \\
+ L16 &  4.504 ± 3.251 &  17.333 &  24.000 &  32.667 &  55.333 \\
+ L17 &   3.05 ± 1.629 &  25.333 &  40.000 &  54.000 &  78.000 \\
+ L18 &  3.598 ± 2.015 &  23.333 &  33.333 &  45.333 &  64.000 \\
+ L19 &  4.059 ± 2.871 &  24.000 &  33.333 &  40.667 &  56.667 \\
+ \textbf{Avg} &  \textbf{3.889 ± 2.418} &  \textbf{19.825} & \textbf{ 29.298} &  \textbf{39.789 } & \textbf{60.877} \\
+\bottomrule
+\end{tabular}
+\caption{MRE and SDR of Test1 dataset}
+\label{table:4.1}
+\end{table}
+
+
+
+ \begin{table}[ht!]
+ \centering
+ \begin{tabular}{llrrrr}
+\toprule
+ &                \textbf{MRE}         &            &  \textbf{SDR} &\\
+    &             \textbf{(mm)}&       \textbf{2mm} &       \textbf{2.5mm} &       \textbf{3mm}&       \textbf{4mm} \\
+\midrule
+  L1 &  3.355 ± 2.892 &  28.000 &  44.000 &  55.000 &  76.000 \\
+  L2 &  4.211 ± 3.565 &  20.000 &  34.000 &  44.000 &  62.000 \\
+  L3 &  5.972 ± 3.177 &   1.000 &   5.000 &   8.000 &  20.000 \\
+  L4 &  4.738 ± 3.692 &  16.000 &  24.000 &  32.000 &  52.000 \\
+  L5 &  3.242 ± 2.667 &  30.000 &  42.000 &  57.000 &  75.000 \\
+  L6 &  7.379 ± 2.982 &   4.000 &   4.000 &   5.000 &   8.000 \\
+  L7 &  3.286 ± 2.574 &  32.000 &  45.000 &  52.000 &  75.000 \\
+  L8 &  3.705 ± 2.543 &  22.000 &  31.000 &  45.000 &  64.000 \\
+  L9 &   3.449 ± 2.46 &  24.000 &  36.000 &  47.000 &  70.000 \\
+ L10 &  4.244 ± 3.506 &  24.000 &  32.000 &  45.000 &  57.000 \\
+ L11 &  3.659 ± 3.174 &  24.000 &  35.000 &  49.000 &  74.000 \\
+ L12 &  4.253 ± 3.273 &  20.000 &  27.000 &  35.000 &  55.000 \\
+ L13 &  4.144 ± 3.291 &  23.000 &  35.000 &  38.000 &  54.000 \\
+ L14 &  5.149 ± 3.159 &  14.000 &  20.000 &  26.000 &  38.000 \\
+ L15 &  4.239 ± 3.028 &  16.000 &  27.000 &  40.000 &  56.000 \\
+ L16 &  9.718 ± 3.585 &   0.000 &   1.000 &   2.000 &   3.000 \\
+ L17 &  4.078 ± 3.149 &  20.000 &  31.000 &  38.000 &  61.000 \\
+ L18 &  5.256 ± 3.406 &  10.000 &  17.000 &  22.000 &  37.000 \\
+ L19 &  4.562 ± 4.702 &  24.000 &  35.000 &  40.000 &  64.000 \\
+ \textbf{Avg} &  \textbf{4.665 ± 3.201} &  \textbf{18.526} &  \textbf{27.632} &  \textbf{35.789} &  \textbf{52.684} \\
+\bottomrule
+\end{tabular}
+\caption{MRE and SDR of Test2 dataset}
+\label{table:4.2}
+\end{table}
+ 
+\section{Cephalometric Landmark Detection based on 2-stage CNN}\label{non_augment_2_stage_CNN}
+\subsection{Overview}
+
+We have subdivide the landmark detection process to 2 parts and have used different CNN model architecture for both parts. Since CNN-based models performs better in facial key point detection task so we have used CNN model by treating the landmark detection in X-ray images as a multilevel regression problem therefore we divided it into two subtasks. The proposed approach is based on CNN model for detection of cephalometric landmarks,that takes the original images as inputs without any hand-crafted feature engineering.The 1st stage is called as align net which removes irrelevant part of the image to input by cropping the areas which do not have any landmarks.The 2nd stage is the proposal net which detects the position of 19 landmarks according to input cropped image.Thus the output of both the stages are pipelined and final result of landmarks according to original image is produced.
+
+\subsection{Model Architecture}
+The model architecture used in both the stages are CNN based but the architectures are different which are as shown in Figure \ref{figure 5.1:2_stage_arch} where, ReLU is Rectified Linear Unit activation function, BN is batch normalization, Conv is convolution ,DL is Dense Layer and MP is max pooling.
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=12cm]{Figures/2_stage_arch.jpg}
+    \caption{2-Stage Model Architecture }
+    \label{figure 5.1:2_stage_arch}
+\end{figure}
+
+ \subsubsection{Alignment Stage}
+ This stage is developed to detect 4 dimensional points  of the lateral face area given the original input lateral X-ray image.The  points are such that , one of the point is the (x,y) coordinates of top left point and other is the width, height  of the cropped image.Similar techniques have been used mostly in key point detection in 3D images.There are  existing variations in head position  of cephalograms, and this process discards the irrelevant image data by cropping the image ,thus it is beneficial. This task is treated as a bounding box problem which uses CNN model and predicts the top-left corner point of bounding box of the image.
+
+ \par 
+ The architecture consists of 3 layers involving the input and output layer.The architecture consists of repetitive application of convolution layers ,ReLu , dense layers ,max pooling and batch normalization.Two 2D convolution layers with 32 kernel filters of size 5 × 5 with strides 1 × 1 followed by batch normalization and max pooling.Flattening is performed in the last layer which also has Fully Connected Neural Network (FCNN) layers.
+ 
+ 
+ 
+ 
+ \subsection{Proposal Stage}
+ The top right and bottom left points of cropped images are  generated by alignment stage are used and the cropped images are the inputs to this stage.This stage is developed to generate the initial positions of the landmarks according to cropped image.
+ 
+ 
+  \par This stage architecture model has 4 layers.Three convolution filters with 32 filters of size 5 × 5 , 64 kernel filters of size 5 × 5 and 128 filters of size 3 × 3 with strides of 1 × 1 ,all followed by batch normalization.The output layer performs flattening of features received and perform batch normalization between two dense layer. 
+ 
+ 
+ \subsection{Training}
+ 
+We have used 150 cephalograms for training and 150 cephalograms for validation  with 19 manually annotated landmarks as ground truth values.The model  is built using Keras with TensorFlow as backend on Python.Then, we normalize the pixels of image,every pixel is considered to range from 0 to 255.Each pixel value is equal to 0.1mm. The training and testing images with their corresponding labels are fed to model giving the input and expected output size.
+ 
+ \subsubsection{Align Net}
+This network is developed to predict the points of the bounding box given the cephalograms.The model architecture described in Alignment stage is fed with 150 images for training the model and 150 images for validation.The model is trained for 1000 epochs to predict 4 dimensional coordinates of bounding box.Images are resized from 1935 × 2400 to 128 × 128. The predicted points are given as \begin{math} \hat{Y}^{box} \in \mathbb{R}^{4} \end{math} and the ground truth points are given as \begin{math} Y^{box} \in \mathbb{R}^{4} \end{math}.The ground truth points for bounding box were not given in the dataset ,we have obtained it manually.Let \begin{math} x_{i} \end{math} be the x coordinate of left-most landmark i and \begin{math} y_{i} \end{math} be the y coordinate of top-most landmark j then the top-left coordinate point of bounding box is calculated as :\\
+
+\begin{align*}
+    x_{tl} = x_{i} - x_{offset}  \\
+    y_{tl} = y_{j} - y_{offset}  \\
+   W^{box} = 1935 - x_{tl}  \\
+   H^{box} = 2400 - y_{tl}  \\
+\end{align*}
+
+where  \begin{math}x_{tl},y_{tl} \end{math} are the top-left coordinates of bounding box of an image and \begin{math}W^{box}\end{math} and \begin{math} H^{box} \end{math} are  the width and height of cropped image and  1935 and 2400 are the width and height of actual image respectively which remains the bottom right point of the cropped image.The offsets are subtracted so that all the landmarks appear inside the cropped box not in the boundary of box.We have not cropped any part from right  and bottom of image therefore from the width and height of actual image removed the left and top part to get width and height of bounding box.
+
+
+\par It is bounding box problem and our aim is  to reduce  the loss of cropped box  prediction \begin{math} L^{box} \end{math} which is the euclidean distance of coordinate points which is shown below:
+\begin{equation}
+    L^{box} = \left \| \hat{Y}^{box} - Y^{box} \right \|_{2}
+\end{equation}
+
+where \begin{math} \hat{Y}^{box} \in \mathbb{R}^{4} \end{math} is the predicted coordinates  and \begin{math} Y^{box} \in \mathbb{R}^{4} \end{math}  is the ground truth coordinates. where \begin{math} \left \| . \right \|_{2} \end{math} is the euclidean norm function. \begin{math}  \mathbb{R}^{4} \end{math}  denotes the (x,y) coordinates of top-left corner  and width and height of cropped box.
+
+
+
+\subsubsection{Proposal Net}
+This network is the main method of our process it predicts 19 landmarks of each image.The input given to this model is the cropped image that is generated from the 2 points of bounding box detected by the align net.The proposal net model is run for 250 epochs.Images are resized from 1935 × 2400 to 96 × 96.This proposal net loss taken in this model is the euclidean distance between all 19 predicted and actual landmark coordinates.Each landmark has (x,y) coordinates so this model outputs total 38 points of each image.The loss is given below:
+\begin{equation}
+    L^{proposal} = \left \| \hat{Y}^{proposal} - Y^{proposal} \right \|_{2}
+\end{equation}
+where
+\begin{math} \hat{Y}^{proposal} \in \mathbb{R}^{38} \end{math} is the estimated landmark coordinates which is according to the top-left corner of the bounding box and similarly \begin{math} Y^{proposal} \in \mathbb{R}^{38}  \end{math} is the actual landmarks which is generated manually by adjusting the ground truth landmarks of original image according to bounding box.Let \begin{math} (x_{i},y_{i}) \end{math}be the coordinates of any landmark i,then for each landmark of all images the proposal landmarks are calculated as is given below:
+
+\begin{align*}
+    x^{p}_{i} = x_{i} - x_{tl}\\
+    y^{p}_{i} = y_{i} - y_{tl}\\
+\end{align*}
+   
+
+ where \begin{math}(x^{p}_{i},y^{p}_{i}) \end{math} are coordinates of landmark i according to top-left corner and \begin{math}
+ (x_{tl},y_{tl}) \end{math} are top-left point of bounding box generated by align net.So \begin{math}
+ Y^{proposal} = ((x^{p}_{1},y^{p}_{1}) , (x^{p}_{2},y^{p}_{2}),...... ,(x^{p}_{19},y^{p}_{19})).
+ \end{math}
+
+
+\subsection{Evaluation}
+The \begin{math} \hat{Y} \end{math} is obtained from \begin{math} \hat{Y}^{proposal}= ((x^{p}_{1},y^{p}_{1}) , (x^{p}_{2},y^{p}_{2}),...... ,(x^{p}_{19},y^{p}_{19})) \end{math} which is predicted landmarks with respect to top left corner by proposal net model. The predicted landmarks with respect to original image is given as \begin{math}
+\hat{Y} = ((\hat{x}_{1},\hat{y}_{1}),(\hat{x}_{2},\hat{y}_{2}),....,(\hat{x}_{19},\hat{y}_{19}))\end{math} .Each landmark is obtained as shown below:
+\\
+\begin{align*}
+    \hat{x}_{i} = x^{p}_{i} + x_{tl}\\
+    \hat{y}_{i} = y^{p}_{i} + y_{tl}
+\end{align*}
+
+ The evaluations are performed by finding the Euclidean distance between the ground truth landmarks Y and predicted landmarks \begin{math} \hat{Y} \end{math}.
+ 
+ \subsection{Result}
+ In this section, we are going to discuss the results of the our 2-stage CNN model on landmark detection.We use tables to
+express the result.We are going to evaluate the performances of our proposed model which is trained for 2500 epochs. Here, we have taken two performance measures, such as: MRE(Mean Radial Error) and SDR (Success Detection Rate) for the range of 2mm,2.5mm,3mm and 4mm.The results of both the dataset i.e., Test1 containing 150 images and Test2 containing 100 images shown in table \ref{table:5.1} and table \ref{table:5.2} respectively.
+ 
+
+ 
+ 
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{llrrrr}
+\toprule
+&                \textbf{MRE}         &            &  \textbf{SDR} &\\
+    &             \textbf{(mm)}&       \textbf{2mm} &       \textbf{2.5mm} &       \textbf{3mm}&       \textbf{4mm} \\
+\midrule
+ 
+ L1 &   2.98 ± 1.687 &  32.667 &  42.667 &  55.333 &  78.667 \\
+  L2 &  3.768 ± 2.481 &  30.000 &  38.667 &  47.333 &  63.333 \\
+  L3 &  3.505 ± 1.926 &  26.667 &  34.667 &  45.333 &  62.667 \\
+  L4 &  2.641 ± 2.049 &  48.667 &  65.333 &  72.667 &  82.000 \\
+  L5 &  3.931 ± 2.513 &  21.333 &  33.333 &  39.333 &  58.000 \\
+  L6 &   5.31 ± 2.699 &  12.000 &  16.000 &  19.333 &  28.000 \\
+  L7 &  5.938 ± 3.042 &   7.333 &  10.000 &  15.333 &  29.333 \\
+  L8 &  6.102 ± 2.939 &   6.000 &  10.000 &  15.333 &  24.000 \\
+  L9 &  5.883 ± 2.953 &   8.000 &  11.333 &  15.333 &  26.000 \\
+ L10 &  6.342 ± 3.109 &   5.333 &   6.667 &  12.000 &  22.000 \\
+ L11 &  4.826 ± 2.675 &  14.000 &  18.000 &  25.333 &  39.333 \\
+ L12 &   4.68 ± 2.922 &  15.333 &  20.000 &  29.333 &  47.333 \\
+ L13 &  5.132 ± 2.915 &  10.000 &  14.667 &  22.000 &  38.667 \\
+ L14 &  5.494 ± 3.178 &  10.000 &  14.000 &  18.667 &  33.333 \\
+ L15 &  4.401 ± 2.692 &  16.000 &  21.333 &  29.333 &  51.333 \\
+ L16 &  6.432 ± 3.297 &   6.000 &   8.667 &  12.667 &  21.333 \\
+ L17 &  3.368 ± 1.902 &  22.667 &  32.000 &  44.667 &  66.667 \\
+ L18 &  4.459 ± 2.612 &  16.000 &  24.667 &  34.000 &  49.333 \\
+ L19 &  3.845 ± 2.177 &  22.667 &  37.333 &  42.667 &  54.000 \\
+ \textbf{Avg} &        \textbf{4.686 ± 2.619} &  \textbf{17.403} &  \textbf{24.175} &  \textbf{31.368} &  \textbf{46.070} \\
+\bottomrule
+\end{tabular}
+\caption{MRE and SDR of Test1 dataset}
+\label{table:5.1}
+\end{table}
+
+
+
+ \begin{table}[ht!]
+ \centering
+ \begin{tabular}{llrrrr}
+\toprule
+ &                \textbf{MRE}         &            &  \textbf{SDR} &\\
+    &             \textbf{(mm)}&       \textbf{2mm} &       \textbf{2.5mm} &       \textbf{3mm}&       \textbf{4mm} \\
+\midrule
+  L1 &   2.887 ± 1.657 &  30.000 &  44.000 &  62.000 &  82.000 \\
+  L2 &   3.457 ± 2.503 &  29.000 &  40.000 &  55.000 &  71.000 \\
+  L3 &   5.166 ± 2.327 &   6.000 &  11.000 &  18.000 &  33.000 \\
+  L4 &   3.035 ± 2.899 &  39.000 &  52.000 &  61.000 &  82.000 \\
+  L5 &   5.359 ± 2.785 &   8.000 &  17.000 &  20.000 &  33.000 \\
+  L6 &   7.613 ± 3.776 &   1.000 &   7.000 &   8.000 &  16.000 \\
+  L7 &   6.548 ± 3.738 &   4.000 &   8.000 &  19.000 &  24.000 \\
+  L8 &   6.269 ± 3.805 &   8.000 &  10.000 &  14.000 &  27.000 \\
+  L9 &    6.413 ± 3.77 &   7.000 &  10.000 &  14.000 &  27.000 \\
+ L10 &    5.424 ± 3.02 &   7.000 &  13.000 &  22.000 &  41.000 \\
+ L11 &   5.386 ± 3.553 &  16.000 &  24.000 &  32.000 &  42.000 \\
+ L12 &   4.785 ± 3.287 &  13.000 &  24.000 &  31.000 &  48.000 \\
+ L13 &   6.804 ± 3.325 &   3.000 &   6.000 &  11.000 &  27.000 \\
+ L14 &    6.572 ± 3.76 &   5.000 &  10.000 &  14.000 &  27.000 \\
+ L15 &    4.642 ± 2.93 &  15.000 &  27.000 &  32.000 &  48.000 \\
+ L16 &  12.999 ± 3.811 &   0.000 &   0.000 &   0.000 &   0.000 \\
+ L17 &   3.042 ± 1.541 &  24.000 &  41.000 &  51.000 &  79.000 \\
+ L18 &   3.999 ± 2.673 &  19.000 &  36.000 &  50.000 &  59.000 \\
+ L19 &   2.812 ± 1.704 &  40.000 &  55.000 &  69.000 &  81.000 \\
+ \textbf{Avg} &  \textbf{5.432 ± 2.992} &  \textbf{14.421} &  \textbf{22.895} &  \textbf{30.684} &  \textbf{44.579} \\
+\bottomrule
+\end{tabular}
+\caption{MRE and SDR of Test2 dataset}
+\label{table:5.2}
+\end{table}
+
+\section{Cephalometric Landmark Detection based on 3-stage CNN}\label{3_stage_CNN}
+\subsection{Overview}
+In chapter \ref{non_augment_2_stage_CNN} we  subdivided the landmark detection process to 2 parts , but here we introduced a new stage the 3rd stage along with these 2 stage.Also, the images used for training are augmented because there are variations in the appearance of cephalogrmas as well as images are resized to small size   therefore the area around each landmarks are refined.We have sub-divided the task to 3 sub-task.Our proposed approach is based on CNN model for detection of cephalometric landmarks. The 1st stage is called as align net which removes irrelavant part of the image to input by cropping the areas which do not have any landmarks and predicts the top-left coordinates and width , height of the bounding box.The 2nd stage is the proposal net which detects the initial position of 19 landmarks according to top-left corner of bounding box.The 3rd stage refine net is used to refine each landmark position of all the images to get better results then the earlier results. The output of all the 3 stages are pipelined to evaluate the results and final result of landmarks according to original image is produced. Different architecture of CNN model is used in all the stages by resizing the image to required size .
+
+\subsection{Model Architecture}
+The  CNN based model architecture is used in all the stages which are shown in Figure \ref{figure 6.1:3_stage_arch} where MP is max pooling , BN is batch normalization,DL is Dense Layer,Conv is convolution and  ReLU is Rectified Linear Unit activation .
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=14cm]{Figures/3_stage_arch.jpg}
+    \caption{3-Stage Model Architecture}
+    \label{figure 6.1:3_stage_arch}
+\end{figure}.
+
+ \subsubsection{Alignment Stage}
+ This stage is developed to predict 4 dimensional points  of the lateral face area given the original input lateral X-ray image.The  points are such that , one of the point is the (x,y) coordinates of top left point and other is the width, height  of the cropped image.Similar techniques have been used mostly in key point detection in 3D images.There are  existing variations in head position  of cephalograms, and this process discards the irrelevant image data by cropping the image ,thus it is beneficial. This task  is treated as a bounding box problem which uses CNN model and predicts the top-left corner point of bounding box of lateral face area.
+
+ \par 
+ The architecture consists of 3 layers involving the input and output layer.The architecture consists of repetitive application of convolution layers ,ReLu , dense layers ,max pooling and batch normalization.Two 2D convolution layers with 32 kernel filters of size 5 × 5 with strides 1 × 1 followed by batch normalization and max pooling.Flattening is performed in the last layer which also has Fully Connected Neural Network (FCNN) layers.
+
+ 
+  \subsubsection{Proposal Stage}
+ The top right and bottom left points of cropped images are  generated by alignment stage are used and the cropped images are the inputs to this stage.This stage is developed to generate the initial positions of the landmarks according to cropped image.
+ 
+ \par
+  This stage architecture model has 4 layers.Three convolution filters with 32 filters of size 5 × 5 , 64 kernel filters of size 5 × 5 and 128 filters of size 3 × 3 with strides of 1 × 1 ,all followed by batch normalization.The output layer performs flattening of features received and perform batch normalization between two dense layer. 
+ 
+ 
+ 
+ \subsubsection{Refinement Stage}
+Due to  the small amount of training data and limitations  due to variations in the appearance of cephalograms , it gets difficult for the single model to predict all landmarks in high precision range.In this stage for individual landmark,the image patch is extracted around its location predicted by proposal net.
+ 
+ \par This model has three convolution layers, with 16 , 32 and 64 filters of 3 × 3 size.First two convolution layers are followed by batch  normalization and maxpooling.The last layer performs flattening and has two dense layers and batch normalizaion in between the two dense layers.
+ 
+ 
+ 
+ 
+ \subsection{Training}
+The model  is built using Keras with TensorFlow as backend on Python.Then, we normalize the pixels of image,every pixel is assumed to range from 0 to 255.Each pixel value is equal to 0.1mm. The training and testing images with their corresponding labels are fed to model giving the input and expected output size.Proposal Net and Refine Net are given augmented images as input.
+ 
+\subsubsection{Data Augmentation}
+It requires time ,resource and high cost to obtain the groundtruth points of clinical images manually marked by medical experts.The amount of dataset provided for clinical image processing  is mainly very less.The commonly used method is to artificially increase the amount of dataset by performing image transformations that preserve the labels to prevent the model from overfitting. We have employed two types of data augmentation  using OpenCV in proposal and refinement stage which are rotation and brightness. We are changing the brightness of images in the range (-20,21) which decreases or increase each pixel of image by given range.The rotations are performed clockwise and anti-clockwise by the increment and decrement in the degrees in the range (-20,20). Augmenting using brightness generates total 6,150 images and rotation generates 6,000 images from 150 training images.
+
+
+ \subsubsection{Align-Net}
+This network is developed to predict the points of the bounding box  area given the raw cephalogram image.The model architecture described in Alignment stage is fed with 150 images for training and 150 images for validation.The model is trained for 1000 epochs. Images are resized from 1935 × 2400 to 128 × 128. The predicted points are given as \begin{math} \hat{Y}^{box} \in \mathbb{R}^{4} \end{math} and the ground truth points are given as \begin{math} Y^{box} \in \mathbb{R}^{4} \end{math}.The ground truth points were not given in the dataset ,we have obtained it manually.Let \begin{math} x_{i} \end{math} be the x coordinate of left-most landmark i and \begin{math} y_{i} \end{math} be the y coordinate of top-most landmark j then the top-left coordinate point of bounding box is calculated as:
+
+\begin{align*}
+    x_{tl} = x_{i} - x_{offset}  \\
+    y_{tl} = y_{j} - y_{offset}  \\
+    W^{box} = 1935 - x_{tl}  \\
+    H^{box} = 2400 - y_{tl}  
+\end{align*}
+   
+where  \begin{math}x_{tl},y_{tl} \end{math} are the top-left coordinates of bounding box of an image and \begin{math}W^{box}\end{math} and \begin{math} H^{box} \end{math}  are  the width and height of cropped image and  1935 and 2400 are the width and height of actual image respectively which remains the bottom right point of the cropped image.The offsets are subtracted so that all the landmarks appear inside the cropped box not in the boundary of box.We have not cropped any part from right  and bottom of image therefore from the width and height of actual image removed the left and top part to get width and height of bounding box.
+
+
+\par It is bounding box problem and we aim to minimize the loss of cropped box \begin{math} L^{box} \end{math} which is  the euclidean distance between the predicted and actual coordinate points of cropped box which is shown below:
+\begin{equation}
+    L^{box} = \left \| \hat{Y}^{box} - Y^{box} \right \|_{2}
+\end{equation}
+
+where \begin{math} \hat{Y}^{box} \in \mathbb{R}^{4} \end{math} is the predicted coordinates  and \begin{math} Y^{box} \in \mathbb{R}^{4} \end{math}  is the ground truth coordinates. where \begin{math} \left \| . \right \|_{2} \end{math} is the euclidean norm function. \begin{math}  \mathbb{R}^{4} \end{math} denotes the (x,y) coordinates of top-left corner  and width and height of bounding box.
+
+
+
+\subsubsection{Proposal Net}
+This network is the main method of our approach it predicts 19 landmarks of each image.The 150 cropped image that is generated from the points of bounding box detected by the align net are augmented and the total of 12,300 images are given for training , 150 images for validation and images are resized to 96 × 96.The proposal net model is run for 50 epochs.This proposal net loss taken in this model is defined as the euclidean distance of all 19 predicted and actual landmark coordinates.Each landmark has (x,y) coordinates so this model outputs total 38 points of each image.The loss is given below:
+\begin{equation}
+    L^{proposal} = \left \| \hat{Y}^{proposal} - Y^{proposal} \right \|_{2}
+\end{equation}
+where
+\begin{math} \hat{Y}^{proposal} \in \mathbb{R}^{38} \end{math} is the estimated landmark coordinates which is according to the top-left corner of the bounding box and similarly \begin{math} Y^{proposal} \in \mathbb{R}^{38}  \end{math} is the actual landmarks which is generated manually by adjusting the ground truth landmarks of original image according to bounding box.Let \begin{math} (x_{i},y_{i}) \end{math}be the coordinates of any landmark i,then for each landmark of all images the proposal landmarks are calculated as is given below:
+\begin{align*}
+    x^{p}_{i} = x_{i} - x_{tl}\\
+    y^{p}_{i} = y_{i} - y_{tl}
+\end{align*}
+ where \begin{math}(x^{p}_{i},y^{p}_{i}) \end{math} are coordinates of landmark i according to top-left corner and \begin{math}
+ (x_{tl},y_{tl}) \end{math} are top-left point of bounding box generated by align net.So \begin{math}
+ Y^{proposal} = ((x^{p}_{1},y^{p}_{1}) , (x^{p}_{2},y^{p}_{2}),...... ,(x^{p}_{19},y^{p}_{19})).
+ \end{math}
+
+\subsubsection{Refine Net}
+The  proposal net model gives the initial positions of landmarks then we refine each landmark by taking a square  patch of length \begin{math} l_{patch} = 200 \end{math} at the centre of which is the landmark point.For each landmark of all the images the model is run for 30 epochs.So for total 19 × 30 epochs the refine net model is run.The model is run separately 19 times considering each landmark of all images.The 150 training images are augmented which makes 12,300 total images are given for training , 150 images for validation and images are resized to 46 × 46 size.So the loss of refine net is defined as the Euclidean loss for single landmark:  \begin{equation}
+    L_{i}^{refine} = \left \| \hat{Y}_{i}^{refine} - Y_{i}^{refine} \right \|_{2}
+\end{equation}
+where \begin{math} \hat{Y}_{i}^{refine} \in \mathbb{R}^{2} \end{math} is the predicted coordinates of landmark i obtained from Refine-Net-i and \begin{math} Y_{i}^{refine} \in \mathbb{R}^{2} \end{math} is the actual coordinates obtained manually from original image landmarks.The predicted and ground truth of refine-net landmarks are according to square patch.\begin{math} Y_{i}^{refine} = (x^{r}_{i},y^{r}_{i}) \end{math} which is calculated as given below:
+\begin{align*}
+    x_{i}^{r} = x_{i} - (x_{i} - \frac{l_{patch}}{2}) \\
+    y_{i}^{r} = y_{i} - (y_{i} - \frac{l_{patch}}{2})
+\end{align*}
+ where \begin{math}(x_{i},y_{i}) \end{math} are the ground truth
+coordinates of landmark i of original image.
+
+\subsection{Evaluation}
+The \begin{math} \hat{Y} \end{math} is obtained from \begin{math} \hat{Y}^{refine}= ((x^{r}_{1},y^{r}_{1}) , (x^{r}_{2},y^{r}_{2}),...... ,(x^{r}_{19},y^{r}_{19})) \end{math} which is predicted landmarks with respect to square patch by refine net model. The predicted landmarks with respect to original image is given as \begin{math}
+\hat{Y} = ((\hat{x}_{1},\hat{y}_{1}),(\hat{x}_{2},\hat{y}_{2}),....,(\hat{x}_{19},\hat{y}_{19}))\end{math} .Each landmark is obtained as shown below:
+\begin{align*}
+\hat{x}_{i} = x^{r}_{i} + x^{p}_{i} + x_{tl} - (\frac{l_{patch}}{2})\\
+\hat{y}_{i} = y^{r}_{i} + y^{p}_{i} + y_{tl} - (\frac{l_{patch}}{2})
+\end{align*}
+where \begin{math} (x^{p}_{i},y^{p}_{i})  \end{math}are proposal net predicted \begin{math} i^{th} \end{math} landmark with respect to top left corner and  \begin{math}(x_{tl},y_{tl}) \end{math} are top-left corner points of bounding box.The evaluations are performed by finding the Euclidean distance between the ground truth landmarks Y and predicted landmarks \begin{math} \hat{Y} \end{math}.
+ 
+ \subsection{Result}
+ In this section, we are going to discuss the results of the our 3-stage CNN model on landmark detection.We use tables to
+express the result.We are going to evaluate the performances of our proposed model predicted landmarks \begin{math}
+\hat{Y} \end{math} and Y. We have taken two performance measures, such as: MRE(Mean Radial Error) and SDR (Success Detection Rate) for the range of 2mm,2.5mm,3mm and 4mm.The results of both the dataset i.e., Test1 containing 150 images and Test2 containing 100 images shown in table \ref{table:6.1} and table \ref{table:6.2} respectively.
+ 
+
+ 
+ 
+
+
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{llrrrr}
+\toprule
+&                \textbf{MRE}         &            &  \textbf{SDR} &\\
+    &             \textbf{(mm)}&       \textbf{2mm} &       \textbf{2.5mm} &       \textbf{3mm}&       \textbf{4mm} \\
+\midrule
+ 
+  L1 &    2.79 ± 2.361 &  45.333 &  54.000 &  62.667 &  80.667 \\
+  L2 &    3.403 ± 2.42 &  32.667 &  46.667 &  52.000 &  64.000 \\
+  L3 &   3.066 ± 2.304 &  36.000 &  48.000 &  59.333 &  76.667 \\
+  L4 &   3.968 ± 2.817 &  23.333 &  28.667 &  34.667 &  58.667 \\
+  L5 &    4.05 ± 2.035 &  16.000 &  25.333 &  34.000 &  52.667 \\
+  L6 &   3.676 ± 2.221 &  25.333 &  34.667 &  44.000 &  60.000 \\
+  L7 &   4.179 ± 2.383 &  18.667 &  26.000 &  32.667 &  52.667 \\
+  L8 &    4.853 ± 7.46 &  16.667 &  26.000 &  34.667 &  52.000 \\
+  L9 &    4.15 ± 2.346 &  16.667 &  26.667 &  38.000 &  54.000 \\
+ L10 &   4.098 ± 2.519 &  19.333 &  27.333 &  39.333 &  56.667 \\
+ L11 &    3.57 ± 2.085 &  23.333 &  36.667 &  44.667 &  67.333 \\
+ L12 &   3.728 ± 2.176 &  22.667 &  35.333 &  41.333 &  54.667 \\
+ L13 &   3.706 ± 2.247 &  28.667 &  34.000 &  42.667 &  58.667 \\
+ L14 &    3.97 ± 2.502 &  24.667 &  31.333 &  38.667 &  57.333 \\
+ L15 &   3.439 ± 2.051 &  23.333 &  39.333 &  50.000 &  68.667 \\
+ L16 &    4.396 ± 2.87 &  13.333 &  24.667 &  41.333 &  57.333 \\
+ L17 &  5.323 ± 22.208 &  27.333 &  41.333 &  56.667 &  80.000 \\
+ L18 &   3.502 ± 2.501 &  28.000 &  39.333 &  49.333 &  64.667 \\
+ L19 &   4.026 ± 3.085 &  20.667 &  30.000 &  41.333 &  60.000 \\
+ \textbf{Avg} &   \textbf{3.889 ± 3.715 }&  \textbf{24.316} &  \textbf{34.491} &  \textbf{44.070} &  \textbf{61.930} \\
+\bottomrule
+\end{tabular}
+\caption{MRE and SDR of Test1 dataset}
+\label{table:6.1}
+\end{table}
+
+ \begin{table}[ht!]
+ \centering
+ \begin{tabular}{llrrrr}
+\toprule
+ &                \textbf{MRE}         &            &  \textbf{SDR} &\\
+    &             \textbf{(mm)}&       \textbf{2mm} &       \textbf{2.5mm} &       \textbf{3mm}&       \textbf{4mm} \\
+\midrule
+   L1 &    3.27 ± 4.157 &  40.000 &  47.000 &  65.000 &  86.000 \\
+  L2 &   3.848 ± 4.196 &  28.000 &  42.000 &  53.000 &  71.000 \\
+  L3 &    6.134 ± 4.57 &   6.000 &   8.000 &  12.000 &  24.000 \\
+  L4 &    4.972 ± 5.62 &  23.000 &  33.000 &  43.000 &  59.000 \\
+  L5 &   4.314 ± 3.378 &  14.000 &  26.000 &  38.000 &  53.000 \\
+  L6 &  8.955 ± 14.095 &   5.000 &   8.000 &   9.000 &  21.000 \\
+  L7 &   4.438 ± 3.253 &  21.000 &  27.000 &  34.000 &  53.000 \\
+  L8 &   4.749 ± 5.017 &  20.000 &  29.000 &  36.000 &  55.000 \\
+  L9 &   4.385 ± 3.271 &  17.000 &  25.000 &  32.000 &  52.000 \\
+ L10 &   4.744 ± 4.404 &  20.000 &  31.000 &  39.000 &  54.000 \\
+ L11 &    4.08 ± 3.427 &  19.000 &  30.000 &  40.000 &  60.000 \\
+ L12 &   4.494 ± 3.665 &  15.000 &  24.000 &  33.000 &  53.000 \\
+ L13 &   4.894 ± 3.854 &  15.000 &  23.000 &  30.000 &  48.000 \\
+ L14 &   4.723 ± 3.091 &  16.000 &  22.000 &  33.000 &  44.000 \\
+ L15 &   4.048 ± 3.277 &  20.000 &  32.000 &  42.000 &  59.000 \\
+ L16 &   10.68 ± 4.716 &   2.000 &   2.000 &   3.000 &   4.000 \\
+ L17 &  5.828 ± 16.141 &  25.000 &  41.000 &  44.000 &  68.000 \\
+ L18 &   4.773 ± 3.983 &  18.000 &  25.000 &  34.000 &  52.000 \\
+ L19 &    4.696 ± 6.04 &  25.000 &  37.000 &  51.000 &  62.000 \\
+ \textbf{Avg} &  \textbf{5.159 ± 5.271} &  \textbf{18.368} &  \textbf{26.947} &  \textbf{35.316} &  \textbf{51.474} \\
+\bottomrule
+\end{tabular}
+\caption{MRE and SDR of Test2 dataset}
+\label{table:6.2}
+\end{table}
+ 
+ 
+The Introduction section, of referenced text \cite{bib1} expands on the background of the work (some overlap with the Abstract is acceptable). The introduction should not include subheadings.
+
+Springer Nature does not impose a strict layout as standard however authors are advised to check the individual requirements for the journal they are planning to submit to as there may be journal-level preferences. When preparing your text please also be aware that some stylistic choices are not supported in full text XML (publication version), including coloured font. These will not be replicated in the typeset article if it is accepted. 
+
+\section{Results}\label{sec2}
+
+Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
+
+\section{This is an example for first level head---section head}\label{sec3}
+
+\subsection{This is an example for second level head---subsection head}\label{subsec2}
+
+\subsubsection{This is an example for third level head---subsubsection head}\label{subsubsec2}
+
+Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. 
+
+\section{Equations}\label{sec4}
+
+Equations in \LaTeX\ can either be inline or on-a-line by itself (``display equations''). For
+inline equations use the \verb+$...$+ commands. E.g.: The equation
+$H\psi = E \psi$ is written via the command \verb+$H \psi = E \psi$+.
+
+For display equations (with auto generated equation numbers)
+one can use the equation or align environments:
+\begin{equation}
+\|\tilde{X}(k)\|^2 \leq\frac{\sum\limits_{i=1}^{p}\left\|\tilde{Y}_i(k)\right\|^2+\sum\limits_{j=1}^{q}\left\|\tilde{Z}_j(k)\right\|^2 }{p+q}.\label{eq1}
+\end{equation}
+where,
+\begin{align}
+D_\mu &=  \partial_\mu - ig \frac{\lambda^a}{2} A^a_\mu \nonumber \\
+F^a_{\mu\nu} &= \partial_\mu A^a_\nu - \partial_\nu A^a_\mu + g f^{abc} A^b_\mu A^a_\nu \label{eq2}
+\end{align}
+Notice the use of \verb+\nonumber+ in the align environment at the end
+of each line, except the last, so as not to produce equation numbers on
+lines where no equation numbers are required. The \verb+\label{}+ command
+should only be used at the last line of an align environment where
+\verb+\nonumber+ is not used.
+\begin{equation}
+Y_\infty = \left( \frac{m}{\textrm{GeV}} \right)^{-3}
+    \left[ 1 + \frac{3 \ln(m/\textrm{GeV})}{15}
+    + \frac{\ln(c_2/5)}{15} \right]
+\end{equation}
+The class file also supports the use of \verb+\mathbb{}+, \verb+\mathscr{}+ and
+\verb+\mathcal{}+ commands. As such \verb+\mathbb{R}+, \verb+\mathscr{R}+
+and \verb+\mathcal{R}+ produces $\mathbb{R}$, $\mathscr{R}$ and $\mathcal{R}$
+respectively (refer Subsubsection~\ref{subsubsec2}).
+
+\section{Tables}\label{sec5}
+
+Tables can be inserted via the normal table and tabular environment. To put
+footnotes inside tables you should use \verb+\footnotetext[]{...}+ tag.
+The footnote appears just below the table itself (refer Tables~\ref{tab1} and \ref{tab2}). 
+For the corresponding footnotemark use \verb+\footnotemark[...]+
+
+\begin{table}[h]
+\begin{center}
+\begin{minipage}{174pt}
+\caption{Caption text}\label{tab1}%
+\begin{tabular}{@{}llll@{}}
+\toprule
+Column 1 & Column 2  & Column 3 & Column 4\\
+\midrule
+row 1    & data 1   & data 2  & data 3  \\
+row 2    & data 4   & data 5\footnotemark[1]  & data 6  \\
+row 3    & data 7   & data 8  & data 9\footnotemark[2]  \\
+\botrule
+\end{tabular}
+\footnotetext{Source: This is an example of table footnote. This is an example of table footnote.}
+\footnotetext[1]{Example for a first table footnote. This is an example of table footnote.}
+\footnotetext[2]{Example for a second table footnote. This is an example of table footnote.}
+\end{minipage}
+\end{center}
+\end{table}
+
+\noindent
+The input format for the above table is as follows:
+
+%%=============================================%%
+%% For presentation purpose, we have included  %%
+%% \bigskip command. please ignore this.       %%
+%%=============================================%%
+\bigskip
+\begin{verbatim}
+\begin{table}[<placement-specifier>]
+\begin{center}
+\begin{minipage}{<preferred-table-width>}
+\caption{<table-caption>}\label{<table-label>}%
+\begin{tabular}{@{}llll@{}}
+\toprule
+Column 1 & Column 2 & Column 3 & Column 4\\
+\midrule
+row 1 & data 1 & data 2	 & data 3 \\
+row 2 & data 4 & data 5\footnotemark[1] & data 6 \\
+row 3 & data 7 & data 8	 & data 9\footnotemark[2]\\
+\botrule
+\end{tabular}
+\footnotetext{Source: This is an example of table footnote. 
+This is an example of table footnote.}
+\footnotetext[1]{Example for a first table footnote.
+This is an example of table footnote.}
+\footnotetext[2]{Example for a second table footnote. 
+This is an example of table footnote.}
+\end{minipage}
+\end{center}
+\end{table}
+\end{verbatim}
+\bigskip
+%%=============================================%%
+%% For presentation purpose, we have included  %%
+%% \bigskip command. please ignore this.       %%
+%%=============================================%%
+
+\begin{table}[h]
+\begin{center}
+\begin{minipage}{\textwidth}
+\caption{Example of a lengthy table which is set to full textwidth}\label{tab2}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcccccc@{\extracolsep{\fill}}}
+\toprule%
+& \multicolumn{3}{@{}c@{}}{Element 1\footnotemark[1]} & \multicolumn{3}{@{}c@{}}{Element 2\footnotemark[2]} \\\cmidrule{2-4}\cmidrule{5-7}%
+Project & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ \\
+\midrule
+Element 3  & 990 A & 1168 & $1547\pm12$ & 780 A & 1166 & $1239\pm100$\\
+Element 4  & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$\\
+\botrule
+\end{tabular*}
+\footnotetext{Note: This is an example of table footnote. This is an example of table footnote this is an example of table footnote this is an example of~table footnote this is an example of table footnote.}
+\footnotetext[1]{Example for a first table footnote.}
+\footnotetext[2]{Example for a second table footnote.}
+\end{minipage}
+\end{center}
+\end{table}
+
+In case of double column layout, tables which do not fit in single column width should be set to full text width. For this, you need to use \verb+\begin{table*}+ \verb+...+ \verb+\end{table*}+ instead of \verb+\begin{table}+ \verb+...+ \verb+\end{table}+ environment. Lengthy tables which do not fit in textwidth should be set as rotated table. For this, you need to use \verb+\begin{sidewaystable}+ \verb+...+ \verb+\end{sidewaystable}+ instead of \verb+\begin{table*}+ \verb+...+ \verb+\end{table*}+ environment. This environment puts tables rotated to single column width. For tables rotated to double column width, use \verb+\begin{sidewaystable*}+ \verb+...+ \verb+\end{sidewaystable*}+.
+
+\begin{sidewaystable}
+\sidewaystablefn%
+\begin{center}
+\begin{minipage}{\textheight}
+\caption{Tables which are too long to fit, should be written using the ``sidewaystable'' environment as shown here}\label{tab3}
+\begin{tabular*}{\textheight}{@{\extracolsep{\fill}}lcccccc@{\extracolsep{\fill}}}
+\toprule%
+& \multicolumn{3}{@{}c@{}}{Element 1\footnotemark[1]}& \multicolumn{3}{@{}c@{}}{Element\footnotemark[2]} \\\cmidrule{2-4}\cmidrule{5-7}%
+Projectile & Energy	& $\sigma_{calc}$ & $\sigma_{expt}$ & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ \\
+\midrule
+Element 3 & 990 A & 1168 & $1547\pm12$ & 780 A & 1166 & $1239\pm100$ \\
+Element 4 & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$ \\
+Element 5 & 990 A & 1168 & $1547\pm12$ & 780 A & 1166 & $1239\pm100$ \\
+Element 6 & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$ \\
+\botrule
+\end{tabular*}
+\footnotetext{Note: This is an example of table footnote this is an example of table footnote this is an example of table footnote this is an example of~table footnote this is an example of table footnote.}
+\footnotetext[1]{This is an example of table footnote.}
+\end{minipage}
+\end{center}
+\end{sidewaystable}
+
+\section{Figures}\label{sec6}
+
+As per the \LaTeX\ standards you need to use eps images for \LaTeX\ compilation and \verb+pdf/jpg/png+ images for \verb+PDFLaTeX+ compilation. This is one of the major difference between \LaTeX\ and \verb+PDFLaTeX+. Each image should be from a single input .eps/vector image file. Avoid using subfigures. The command for inserting images for \LaTeX\ and \verb+PDFLaTeX+ can be generalized. The package used to insert images in \verb+LaTeX/PDFLaTeX+ is the graphicx package. Figures can be inserted via the normal figure environment as shown in the below example:
+
+%%=============================================%%
+%% For presentation purpose, we have included  %%
+%% \bigskip command. please ignore this.       %%
+%%=============================================%%
+\bigskip
+\begin{verbatim}
+\begin{figure}[<placement-specifier>]
+\centering
+\includegraphics{<eps-file>}
+\caption{<figure-caption>}\label{<figure-label>}
+\end{figure}
+\end{verbatim}
+\bigskip
+%%=============================================%%
+%% For presentation purpose, we have included  %%
+%% \bigskip command. please ignore this.       %%
+%%=============================================%%
+
+\begin{figure}[h]%
+\centering
+\includegraphics[width=0.9\textwidth]{fig.eps}
+\caption{This is a widefig. This is an example of long caption this is an example of long caption  this is an example of long caption this is an example of long caption}\label{fig1}
+\end{figure}
+
+In case of double column layout, the above format puts figure captions/images to single column width. To get spanned images, we need to provide \verb+\begin{figure*}+ \verb+...+ \verb+\end{figure*}+.
+
+For sample purpose, we have included the width of images in the optional argument of \verb+\includegraphics+ tag. Please ignore this. 
+
+\section{Algorithms, Program codes and Listings}\label{sec7}
+
+Packages \verb+algorithm+, \verb+algorithmicx+ and \verb+algpseudocode+ are used for setting algorithms in \LaTeX\ using the format:
+
+%%=============================================%%
+%% For presentation purpose, we have included  %%
+%% \bigskip command. please ignore this.       %%
+%%=============================================%%
+\bigskip
+\begin{verbatim}
+\begin{algorithm}
+\caption{<alg-caption>}\label{<alg-label>}
+\begin{algorithmic}[1]
+. . .
+\end{algorithmic}
+\end{algorithm}
+\end{verbatim}
+\bigskip
+%%=============================================%%
+%% For presentation purpose, we have included  %%
+%% \bigskip command. please ignore this.       %%
+%%=============================================%%
+
+You may refer above listed package documentations for more details before setting \verb+algorithm+ environment. For program codes, the ``program'' package is required and the command to be used is \verb+\begin{program}+ \verb+...+ \verb+\end{program}+. A fast exponentiation procedure:
+
+\begin{program}
+\BEGIN \\ %
+  \FOR i:=1 \TO 10 \STEP 1 \DO
+     |expt|(2,i); \\ |newline|() \OD %
+\rcomment{Comments will be set flush to the right margin}
+\WHERE
+\PROC |expt|(x,n) \BODY
+          z:=1;
+          \DO \IF n=0 \THEN \EXIT \FI;
+             \DO \IF |odd|(n) \THEN \EXIT \FI;
+\COMMENT{This is a comment statement};
+                n:=n/2; x:=x*x \OD;
+             \{ n>0 \};
+             n:=n-1; z:=z*x \OD;
+          |print|(z) \ENDPROC
+\END
+\end{program}
+
+
+\begin{algorithm}
+\caption{Calculate $y = x^n$}\label{algo1}
+\begin{algorithmic}[1]
+\Require $n \geq 0 \vee x \neq 0$
+\Ensure $y = x^n$ 
+\State $y \Leftarrow 1$
+\If{$n < 0$}\label{algln2}
+        \State $X \Leftarrow 1 / x$
+        \State $N \Leftarrow -n$
+\Else
+        \State $X \Leftarrow x$
+        \State $N \Leftarrow n$
+\EndIf
+\While{$N \neq 0$}
+        \If{$N$ is even}
+            \State $X \Leftarrow X \times X$
+            \State $N \Leftarrow N / 2$
+        \Else[$N$ is odd]
+            \State $y \Leftarrow y \times X$
+            \State $N \Leftarrow N - 1$
+        \EndIf
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
+\bigskip
+%%=============================================%%
+%% For presentation purpose, we have included  %%
+%% \bigskip command. please ignore this.       %%
+%%=============================================%%
+
+Similarly, for \verb+listings+, use the \verb+listings+ package. \verb+\begin{lstlisting}+ \verb+...+ \verb+\end{lstlisting}+ is used to set environments similar to \verb+verbatim+ environment. Refer to the \verb+lstlisting+ package documentation for more details.
+
+%%=============================================%%
+%% For presentation purpose, we have included  %%
+%% \bigskip command. please ignore this.       %%
+%%=============================================%%
+\bigskip
+\begin{minipage}{\hsize}%
+\lstset{frame=single,framexleftmargin=-1pt,framexrightmargin=-17pt,framesep=12pt,linewidth=0.98\textwidth,language=pascal}% Set your language (you can change the language for each code-block optionally)
+%%% Start your code-block
+\begin{lstlisting}
+for i:=maxint to 0 do
+begin
+{ do nothing }
+end;
+Write('Case insensitive ');
+Write('Pascal keywords.');
+\end{lstlisting}
+\end{minipage}
+
+\section{Cross referencing}\label{sec8}
+
+Environments such as figure, table, equation and align can have a label
+declared via the \verb+\label{#label}+ command. For figures and table
+environments use the \verb+\label{}+ command inside or just
+below the \verb+\caption{}+ command. You can then use the
+\verb+\ref{#label}+ command to cross-reference them. As an example, consider
+the label declared for Figure~\ref{fig1} which is
+\verb+\label{fig1}+. To cross-reference it, use the command 
+\verb+Figure \ref{fig1}+, for which it comes up as
+``Figure~\ref{fig1}''. 
+
+To reference line numbers in an algorithm, consider the label declared for the line number 2 of Algorithm~\ref{algo1} is \verb+\label{algln2}+. To cross-reference it, use the command \verb+\ref{algln2}+ for which it comes up as line~\ref{algln2} of Algorithm~\ref{algo1}.
+
+\subsection{Details on reference citations}\label{subsec7}
+
+Standard \LaTeX\ permits only numerical citations. To support both numerical and author-year citations this template uses \verb+natbib+ \LaTeX\ package. For style guidance please refer to the template user manual.
+
+Here is an example for \verb+\cite{...}+: \cite{bib1}. Another example for \verb+\citep{...}+: \citep{bib2}. For author-year citation mode, \verb+\cite{...}+ prints Jones et al. (1990) and \verb+\citep{...}+ prints (Jones et al., 1990).
+
+All cited bib entries are printed at the end of this article: \cite{bib3}, \cite{bib4}, \cite{bib5}, \cite{bib6}, \cite{bib7}, \cite{bib8}, \cite{bib9}, \cite{bib10}, \cite{bib11} and \cite{bib12}.
+
+\section{Examples for theorem like environments}\label{sec10}
+
+For theorem like environments, we require \verb+amsthm+ package. There are three types of predefined theorem styles exists---\verb+thmstyleone+, \verb+thmstyletwo+ and \verb+thmstylethree+ 
+
+%%=============================================%%
+%% For presentation purpose, we have included  %%
+%% \bigskip command. please ignore this.       %%
+%%=============================================%%
+\bigskip
+\begin{tabular}{|l|p{19pc}|}
+\hline
+\verb+thmstyleone+ & Numbered, theorem head in bold font and theorem text in italic style \\\hline
+\verb+thmstyletwo+ & Numbered, theorem head in roman font and theorem text in italic style \\\hline
+\verb+thmstylethree+ & Numbered, theorem head in bold font and theorem text in roman style \\\hline
+\end{tabular}
+\bigskip
+%%=============================================%%
+%% For presentation purpose, we have included  %%
+%% \bigskip command. please ignore this.       %%
+%%=============================================%%
+
+For mathematics journals, theorem styles can be included as shown in the following examples:
+
+\begin{theorem}[Theorem subhead]\label{thm1}
+Example theorem text. Example theorem text. Example theorem text. Example theorem text. Example theorem text. 
+Example theorem text. Example theorem text. Example theorem text. Example theorem text. Example theorem text. 
+Example theorem text. 
+\end{theorem}
+
+Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
+
+\begin{proposition}
+Example proposition text. Example proposition text. Example proposition text. Example proposition text. Example proposition text. 
+Example proposition text. Example proposition text. Example proposition text. Example proposition text. Example proposition text. 
+\end{proposition}
+
+Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
+
+\begin{example}
+Phasellus adipiscing semper elit. Proin fermentum massa
+ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula, eleifend
+at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. 
+\end{example}
+
+Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
+
+\begin{remark}
+Phasellus adipiscing semper elit. Proin fermentum massa
+ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula, eleifend
+at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. 
+\end{remark}
+
+Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
+
+\begin{definition}[Definition sub head]
+Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. 
+\end{definition}
+
+Additionally a predefined ``proof'' environment is available: \verb+\begin{proof}+ \verb+...+ \verb+\end{proof}+. This prints a ``Proof'' head in italic font style and the ``body text'' in roman font style with an open square at the end of each proof environment. 
+
+\begin{proof}
+Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. 
+\end{proof}
+
+Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
+
+\begin{proof}[Proof of Theorem~{\upshape\ref{thm1}}]
+Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. 
+\end{proof}
+
+\noindent
+For a quote environment, use \verb+\begin{quote}...\end{quote}+
+\begin{quote}
+Quoted text example. Aliquam porttitor quam a lacus. Praesent vel arcu ut tortor cursus volutpat. In vitae pede quis diam bibendum placerat. Fusce elementum
+convallis neque. Sed dolor orci, scelerisque ac, dapibus nec, ultricies ut, mi. Duis nec dui quis leo sagittis commodo.
+\end{quote}
+
+Sample body text. Sample body text. Sample body text. Sample body text. Sample body text (refer Figure~\ref{fig1}). Sample body text. Sample body text. Sample body text (refer Table~\ref{tab3}). 
+
+\section{Methods}\label{sec11}
+
+Topical subheadings are allowed. Authors must ensure that their Methods section includes adequate experimental and characterization data necessary for others in the field to reproduce their work. Authors are encouraged to include RIIDs where appropriate. 
+
+\textbf{Ethical approval declarations} (only required where applicable) Any article reporting experiment/s carried out on (i)~live vertebrate (or higher invertebrates), (ii)~humans or (iii)~human samples must include an unambiguous statement within the methods section that meets the following requirements: 
+
+\begin{enumerate}[1.]
+\item Approval: a statement which confirms that all experimental protocols were approved by a named institutional and/or licensing committee. Please identify the approving body in the methods section
+
+\item Accordance: a statement explicitly saying that the methods were carried out in accordance with the relevant guidelines and regulations
+
+\item Informed consent (for experiments involving humans or human tissue samples): include a statement confirming that informed consent was obtained from all participants and/or their legal guardian/s
+\end{enumerate}
+
+If your manuscript includes potentially identifying patient/participant information, or if it describes human transplantation research, or if it reports results of a clinical trial then  additional information will be required. Please visit (\url{https://www.nature.com/nature-research/editorial-policies}) for Nature Portfolio journals, (\url{https://www.springer.com/gp/authors-editors/journal-author/journal-author-helpdesk/publishing-ethics/14214}) for Springer Nature journals, or (\url{https://www.biomedcentral.com/getpublished/editorial-policies\#ethics+and+consent}) for BMC.
+
+\section{Discussion}\label{sec12}
+
+Discussions should be brief and focused. In some disciplines use of Discussion or `Conclusion' is interchangeable. It is not mandatory to use both. Some journals prefer a section `Results and Discussion' followed by a section `Conclusion'. Please refer to Journal-level guidance for any specific requirements. 
+
+\section{Conclusion}\label{sec13}
+
+Conclusions may be used to restate your hypothesis or research question, restate your major findings, explain the relevance and the added value of your work, highlight any limitations of your study, describe future directions for research and recommendations. 
+
+In some disciplines use of Discussion or 'Conclusion' is interchangeable. It is not mandatory to use both. Please refer to Journal-level guidance for any specific requirements. 
+
+\backmatter
+
+\bmhead{Supplementary information}
+
+If your article has accompanying supplementary file/s please state so here. 
+
+Authors reporting data from electrophoretic gels and blots should supply the full unprocessed scans for key as part of their Supplementary information. This may be requested by the editorial team/s if it is missing.
+
+Please refer to Journal-level guidance for any specific requirements.
+
+\bmhead{Acknowledgments}
+
+Acknowledgments are not compulsory. Where included they should be brief. Grant or contribution numbers may be acknowledged.
+
+Please refer to Journal-level guidance for any specific requirements.
+
+\section*{Declarations}
+
+Some journals require declarations to be submitted in a standardised format. Please check the Instructions for Authors of the journal to which you are submitting to see if you need to complete this section. If yes, your manuscript must contain the following sections under the heading `Declarations':
+
+\begin{itemize}
+\item Funding
+\item Conflict of interest/Competing interests (check journal-specific guidelines for which heading to use)
+\item Ethics approval 
+\item Consent to participate
+\item Consent for publication
+\item Availability of data and materials
+\item Code availability 
+\item Authors' contributions
+\end{itemize}
+
+\noindent
+If any of the sections are not relevant to your manuscript, please include the heading and write `Not applicable' for that section. 
+
+%%===================================================%%
+%% For presentation purpose, we have included        %%
+%% \bigskip command. please ignore this.             %%
+%%===================================================%%
+\bigskip
+\begin{flushleft}%
+Editorial Policies for:
+
+\bigskip\noindent
+Springer journals and proceedings: \url{https://www.springer.com/gp/editorial-policies}
+
+\bigskip\noindent
+Nature Portfolio journals: \url{https://www.nature.com/nature-research/editorial-policies}
+
+\bigskip\noindent
+\textit{Scientific Reports}: \url{https://www.nature.com/srep/journal-policies/editorial-policies}
+
+\bigskip\noindent
+BMC journals: \url{https://www.biomedcentral.com/getpublished/editorial-policies}
+\end{flushleft}
+
+\begin{appendices}
+
+\section{Section title of first appendix}\label{secA1}
+
+An appendix contains supplementary information that is not an essential part of the text itself but which may be helpful in providing a more comprehensive understanding of the research problem or it is information that is too cumbersome to be included in the body of the paper.
+
+%%=============================================%%
+%% For submissions to Nature Portfolio Journals %%
+%% please use the heading ``Extended Data''.   %%
+%%=============================================%%
+
+%%=============================================================%%
+%% Sample for another appendix section			       %%
+%%=============================================================%%
+
+%% \section{Example of another appendix section}\label{secA2}%
+%% Appendices may be used for helpful, supporting or essential material that would otherwise 
+%% clutter, break up or be distracting to the text. Appendices can consist of sections, figures, 
+%% tables and equations etc.
+
+\end{appendices}
+
+%%===========================================================================================%%
+%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+%% system, please include the references within the manuscript file itself. You may do this  %%
+%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+%%===========================================================================================%%
+
+\bibliography{sn-bibliography}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
+
+%% Default %%
+%%\input sn-sample-bib.tex%
+
+\end{document}

@@ -1,0 +1,771 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%======================================================%%
+%% to compile with pdflatex/xelatex use pdflatex option %%
+%%======================================================%%
+
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+\documentclass[sn-mathphys]{sn-jnl}% Math and Physical Sciences Reference Style
+\usepackage{graphicx}
+\usepackage{graphicx}
+\usepackage{caption}
+%\usepackage{subcaption}
+\usepackage{setspace}
+\usepackage[caption=false]{subfig}
+
+%\usepackage{natbib}
+%\usepackage{tikz}
+%%\documentclass[sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[sn-vancouver]{sn-jnl}% Vancouver Reference Style
+%%\documentclass[sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+%%\documentclass[sn-standardnature]{sn-jnl}% Standard Nature Portfolio Reference Style
+%%\documentclass[default]{sn-jnl}% Default
+%%\documentclass[default,iicol]{sn-jnl}% Default with double column layout
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+\jyear{2024}%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+\begin{document}
+
+\title [Article Title] {MedDefend: A Novel Defense Method to Improve Adversarial Robustness of Medical Image Classifier}
+
+%%=============================================================%%
+%% Prefix	-> \pfx{Dr}
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% NatureName	-> \tanm{Poet Laureate} -> Title after name
+%% Degrees	-> \dgr{MSc, PhD}
+%% \author*[1,2]{\pfx{Dr} \fnm{Joergen W.} \spfx{van der} \sur{Ploeg} \sfx{IV} \tanm{Poet Laureate} 
+%%                 \dgr{MSc, PhD}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author[1]{\fnm{Chiranjeevi} \sur{Sadu}}\email{schiranjeevi@rguktn.ac.in}
+
+\author[2]{\fnm{Krishna Kumar} \sur{Singh}}\email{krishnasingh@rguktn.ac.in}
+
+%\equalcont{These authors contributed equally to this work.}
+\author[3]{\fnm{V Ramanjaneyulu} \sur{Yannam}}\email{ramanjaneyulu.yannam@woxsen.edu.in}
+
+\author[4]{\fnm{Pradip K.} \sur{Das}}\email{pkdas@iitg.ac.in}
+%\equalcont{These authors contributed equally to this work.}
+
+
+%\equalcont{These authors contributed equally to this work.}
+\author*[5]{\fnm{Anand} \sur{Nayyar}}\email{anandnayyar@duytan.edu.vn}
+
+%\affil*[1]{\orgdiv{Department of Computer Science and Engineering}, \orgname{RGUKT Nuzvid}, \orgaddress{\postcode{521202}, \state{Andhra Pradesh}, \country{India}}}
+\affil[1,2]{\orgdiv{Department of Computer Science and Engineering}, \orgname{RGUKT Nuzvid}, \orgaddress{\state{Andhra Pradesh}, \country{India}}}
+
+%\affil[2]{\orgdiv{Department of Computer Science and Engineering}, \orgname{RGUKT Nuzvid}, \orgaddress{\state{Andhra Pradesh}, \country{India}}}
+\affil[3]{\orgdiv{School of Technology}, \orgname{Woxsen University}, \orgaddress{\city{Hyderabad}, \state{Telangana}, \country{India}}}
+
+\affil[4]{\orgdiv{Department of Computer Science and Engineering}, \orgname{IIT Guwahati}, \orgaddress{\state{Assam}, \country{India}}}
+
+
+\affil*[5]{\orgdiv{Graduate School, Faculty of Information Technology}, \orgname{Duy Tan University}, \orgaddress{\city{Da Nang 550000}, \country{Viet Nam}}}
+
+%%==================================%%
+%% sample for unstructured abstract %%
+%%==================================%%
+
+\abstract{With advancements in technology and image processing algorithms, medical imaging continues to utilize various techniques to create images of the human body for diagnostic and treatment purposes. However, these medical image classifiers, which are based on Machine Learning (ML) models, particularly Deep Learning (DL)-based classifiers have been observed to be susceptible to adversarial attacks. Adversarial attacks involve deliberately manipulating images in a way that is imperceptible or subtle to humans but can potentially mislead ML models to misclassification. The primary objective of this paper is to propose a novel defense method titled ``MedDefend``, which is based on image-enhancing techniques, that significantly improve the adversarial robustness of medical image classifiers. Adversarial attacks against medical images are created based on the Fast Gradient Sign Method (FGSM), Basic Iterative Method (BIM), DeepFool and Jacobian-based Saliency Map Attack (JSMA) methods. To mitigate the effect of adversarial attacks, adversarial images are then enhanced using image-enhancing techniques. The proposed MedDefend is based on the Convolutional Neural Network (CNN) with an additional Gaussian process regression (GPR) classifier that performs classification using statistical features of adversarial and clean images. To improve the classification performance, MedDefend uses image enhancement techniques %such as Bilateral Filtering, Gaussian Blur, Histogram Equalization, Adaptive Histogram Equalization (AHE), Sharpen and Median Blur 
+to enhance the adversarial images before feeding them into the detector. The effectiveness of MedDefend has been demonstrated on a real-world brain tumor dataset and experimental results show that it significantly improves classification accuracy against various adversarial attacks. It improves the highest classification accuracy from $\textbf{71.80}\%$ to $\textbf{99.56}\%$ on FGSM attacks, from $\textbf{69.75}\%$ to $\textbf{98.93}\%$ on BIM attacks, from $\textbf{96.71}\%$ to $\textbf{99.28}\%$ on DeepFool attacks and from $\textbf{67.33}\%$ to $\textbf{99.20}\%$ on JSMA attacks.}
+
+
+%The encoded weighted local magnitude patterns (WLMP) are extracted and provided to different types of classifiers to detect facial adversarial images from the clean images. The effectiveness of RobustFace has been demonstrated on two real-world datasets and experimental outcomes show that it significantly improves facial adversarial robustness on all evaluating classifiers. It improves the highest classification accuracy from $\textbf{98.75}\%$ to $\textbf{99.00}\%$ on P-FGSM attacks, from $\textbf{77.94}\%$ to $\textbf{85.25}\%$ on adversarial attacks generated by StyleGAN and from $\textbf{65.52}\%$ to $\textbf{69.50}\%$ for FLM attacks.}
+
+%%================================%%
+%% Sample for structured abstract %%
+%%================================%%
+
+% \abstract{\textbf{Purpose:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Methods:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Results:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}
+
+\keywords{Medical Images; Adversarial Attacks; Image Enhancement; Adversarial Robustness; Defense Method; Medical Image Classification.}
+
+%%\pacs[JEL Classification]{D8, H51}
+
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+
+\maketitle
+
+\section{Introduction}\label{Introduction}
+The field of DL has seen rapid development, marked by a significant rise in both performance and the range of practical applications over the past two decades. Specifically, the emergence of deep neural networks (DNNs) represented a major leap forward in several applications such as object detection \cite{girshick2015fast}, image classification \cite{krizhevsky2012imagenet}, speech recognition \cite{amodei2016deep}, natural language processing \cite{deng2018deep}, sentiment analysis \cite{ortis2019overview} and multi-modal \cite{carrara2018picture}. These DNNs, with their diverse architectures, quickly gained immense popularity and showcased exceptional performance that could rival, and in some cases exceed, human capabilities in tasks related to perception and decision-making. As a result, DNNs are increasingly being utilized in safety-critical domains. %However, despite these successes, both human and machine perceptual systems remain vulnerable to adversarial attacks, which are malicious image manipulations designed to deceive classifiers with high confidence. 
+%ML models in particularly Deep Learning (DL) is being applied in many safety-critical contexts due to its rapid advancement and significant accomplishments in a wide range of applications, including object detection \cite{girshick2015fast}, speech recognition \cite{amodei2016deep}, image classification \cite{krizhevsky2012imagenet}, natural language processing \cite{deng2018deep}, sentiment analysis \cite{ortis2019overview} and multi-modal \cite{carrara2018picture}. 
+
+However, the majority of existing ML classifiers exhibit significant susceptibility to adversarial examples. An adversarial example is an input data sample that has undergone minute modifications with the specific intent of leading an ML classifier to misclassify it. Often, these alterations are so unnoticeable that they escape the notice of a human observer entirely, yet they are sufficient to cause the classifier to make an erroneous prediction %In spite of these advances and their success, perceptual systems of humans and machines are still vulnerable to certain malicious image attacks known as adversarial attacks 
+\cite{szegedy2013intriguing, goodfellow2014explaining}. %Fig. \ref{fgsm} shows an example of an adversarial attack generated by Goodfellow et al. \cite{goodfellow2014explaining}. %Adversarial attacks are carefully crafted by mixing small perturbations to inputs for misclassification by the classifier with high confidence. 
+
+Adversarial attacks can broadly be classified into two categories: white-box attacks and black-box attacks. In a white-box attack on an ML model, the adversary possesses complete knowledge of the model used for classification. This knowledge includes details about the model architecture like the type of neural network, the number of layers, etc. Additionally, the attacker is aware of the algorithm (e.g., gradient-descent optimization) used during the training process and has access to information about the distribution of the training data. Furthermore, the attacker has knowledge of the model's parameters after it has been fully trained. In contrast to a white-box attack, a black-box attack assumes no prior knowledge about the model being targeted. Instead, it relies on information about the model's settings and previous inputs to exploit the model's vulnerabilities. For instance, the adversary probes the model by submitting a series of meticulously crafted inputs and then observes the outputs produced by the model. This iterative process allows the attacker to gradually learn about the model's behavior and identify its weaknesses without having any direct access to the model's architecture, parameters, or internal workings. It's a more challenging and resource-intensive approach compared to white-box attacks, as the attacker needs to experiment and gather information iteratively through interactions with the model.
+
+
+\begin{figure}[t!]
+\centering     %%% not \center
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_12960.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_12968.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_12995.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_13370.jpg}\\
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_13397.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_13446.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_13454.jpg}\\
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_13548.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_13589.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_13671.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/adversarialGAN/adversarial_2496.png}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/adversarialGAN/adversarial_2497.png}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/adversarialGAN/adversarial_2498.png}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/adversarialGAN/adversarial_2499.png}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/adversarialGAN/adversarial_2500.png}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/adversarialGAN/adversarial_2501.png}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/adversarialGAN/adversarial_2502.png}\\
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/adversarialGAN/adversarial_2503.png}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/adversarialGAN/adversarial_2504.png}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/adversarialGAN/adversarial_2505.png}\\
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_12960.png}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_12968.png}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_12995.png}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_13370.png}\\
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_13397.png}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_13446.png}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_13454.png}\\
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_13548.png}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_13589.png}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_13671.png}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_12960.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_12968.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_12995.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_13370.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_13397.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_13446.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_13454.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_13548.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_13589.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_13671.jpg}
+
+%\subfigure[]{\label{fig:b}\includegraphics[width=40mm]{Figures/81_landmarksPoints.jpg}}
+\caption{Examples of the original image, StyleGAN attack, FLM attack, and P-FGSM attack in column-wise.}
+\label{pFGSMresults}
+\end{figure}
+
+Multiple techniques have been introduced for generating adversarial attacks \cite{carlini2017towards, dong2018boosting, goodfellow2014explaining, kurakin2016adversarial, liu2016delving, papernot2017practical, li2019scene}. For instance, Fig. \ref{pFGSMresults} depicts examples of original facial images and corresponding adversarial images generated by StyleGAN \cite{karras2019style}, FLM \cite{dabouei2019fast} and P-FGSM \cite{li2019scene}, respectively. Adversarial images are specifically designed to closely resemble the original images, leading to misclassification by the classifier. Adversarial examples present significant security concerns because they can potentially be employed to launch attacks on ML systems, even when the attacker has no access to the underlying model. Furthermore, it has uncovered that it is possible to execute adversarial attacks on ML systems operating in the physical world, where inputs are received through imperfect sensors rather than precise digital data \cite{kurakin2016adversarial}. 
+
+In the long-term, as ML and  Artificial Intelligence (AI) systems continue to advance in power and capability, the sensitivity of DL models to adversarial images can pose significant challenges and raise concerns, particularly in security and safety-critical applications. It could be leveraged to compromise and gain control over highly potent AI systems. For instance, when an adversarial attack is applied to the DNN model, which is part of an autonomous vehicle, the model reads the present scene differently and a tragic accident may result. Despite several defense techniques have been proposed to avoid misclassification by the classifier \cite{gu2014towards, madry2017towards, papernot2016distillation, rozsa2016adversarial}, many of these defenses are not effective against various and more powerful adversarial attacks \cite{szegedy2013intriguing, carlini2017adversarial}. %However, recent efforts have been made on verifying and training provably robust networks \cite{dvijotham2018training, dvijotham2018dual}, no effective defense methods in forensic models against such attacks are known yet. 
+Thus, the existence of such adversarial attacks shows frailties in the ML model and ensuring robustness against adversarial examples becomes a crucial aspect of addressing AI safety concerns.
+
+Research on adversarial attacks and defenses poses several challenges, one of which is the complexity of evaluation. Unlike traditional ML, where evaluation is straightforward by measuring the loss on a test set drawn independently and identically distributed from the training set, adversarial ML presents a more complicated problem. In adversarial settings, defenders face an open-ended challenge where attackers can send inputs from an unknown distribution. It's not enough to assess a defense against a single predefined attack or even a set of attacks prepared in advance by the researcher proposing the defense. Even if a defense performs well in such experiments, it might be vulnerable to a new attack strategy that the defender did not anticipate. Ideally, a defense should be theoretically proven to be sound. However, ML in general, and DNNs in particular, are challenging to analyze theoretically due to their complexity. 
+
+Detection-based defense methods have recently gained significant attention as potential alternative solutions to counter adversarial attacks. Grosse et al. \cite{grosse2017statistical} enhanced ML models with an additional class dedicated to classifying adversarial images. Metzen et al. \cite{metzen2017detecting} proposed a method to train neural networks (NNs) specifically for recognizing and classifying adversarial attacks. Another technique by Gong and Wang \cite{gong2017adversarial} involved training an extra classifier to identify the presence of adversarial attacks. Bhagoji et al. \cite{bhagoji2017dimensionality} reduced the input image dimensions and fed them into a classifier, which is then trained using a small dataset and a fully connected NN. Furthermore, Li and Li \cite{li2017adversarial} proposed a cascaded classifier, with each individual classifier implemented as a linear SVM on the Principal Component Analysis (PCA) for effective detection of adversarial examples among the original images. However, many defense methods faced challenges when applied to real-world datasets, resulting in lower accuracy. As adversarial attacks can be highly sophisticated and adaptive, it becomes difficult to develop robust defense mechanisms that can consistently detect and mitigate these attacks. 
+
+In this paper, a novel defense method, namely "RobustFace", is proposed that utilizes deep image restoration networks to enhance the robustness of ML classifiers against adversarial attacks. RobustFace is an extension to the previously published work in \cite{sadu2021defense}. In \cite{sadu2021defense}, we focused on the detection of facial adversarial attacks that were generated by P-FGSM. Its performance was evaluated on different types of SVM classifiers using the CelebA dataset. There were no image restoration techniques used to improve the robustness of the classifiers. In RobustFace, facial adversarial attacks were generated by employing StyleGAN \cite{karras2019style}, FLM \cite{dabouei2019fast} and P-FGSM \cite{li2019scene} techniques. Next, the crafted adversarial images are enhanced using deep image restoration networks to bring them back into the original space. Then, the encoded WLMP features are extracted from the input image and utilized as input for various classifiers, including different types of SVMs, Random Forest (RF), and k-Nearest Neighbor (k-NN). These classifiers are used to evaluate the performance of RobustFace on CelebA and FFHQ datasets. Through comprehensive experiments, we demonstrate the effectiveness of RobustFace in discriminating adversarial images from real ones. The experimental results also show that RobustFace significantly improves the performance of various classification models.\\
+
+\noindent
+\textbf{Objectives of the Paper}\\
+The objectives of the paper are:
+\begin{itemize}
+ \item To study the background and enlighten literature review with regard to the adversarial attacks, defense methods and improve adversarial robustness of ML classifiers;  
+ \item To propose a novel methodology titled "RobustFace" based on deep image restoration to solve the adversarial robustness of ML classifiers. Deep image restoration networks are used to restore the crafted adversarial images back to their original space. Then, the encoded features are extracted to distinguish adversarial images from the original;
+\item To test and validate RobustFace on various performance metrics like precision, recall, F1-score and accuracy; 
+\item And, to compare RobustFace with existing techniques- various types of SVMs, RF and k-NN. 
+\end{itemize}
+\textbf{Organization of Paper}\\
+The rest of the paper is organized as: Section 2 discusses a literature survey on adversarial attacks and defense methods. Materials and methods are discussed in Section 3. Section 4 highlights the proposed methodology. Experimentation, results and analysis are presented in Section 5. And, finally, Section 6 concludes the paper with future scope.
+
+
+\section{Literature Survey}\label{Literature_survey}
+In the field of face manipulation and detection, numerous approaches had been proposed over the years. However, it is observed that not all of these approaches for creating fake images or image attacks, as well as their detection methods, are suitable for effectively detecting facial adversarial attacks. In this section, various state-of-the-art works are presented that specifically address the generation of adversarial images and their detection to provide a comprehensive understanding of the current advancements in the field and highlight the most relevant and effective approaches for detecting facial adversarial attacks.
+
+\subsection{Adversarial Attacks Generation} 
+%With the adversary's knowledge about the target classifier, the methods used to generate adversarial examples can be broadly classified into three categories: white-box, black-box, and semi white-box adversarial attacks.
+
+
+%In white-box attacks, the attackers have complete knowledge of the parameters, architecture, and gradients of the target classifier. This allows them to intentionally craft adversarial examples using all the available information. 
+Biggio et al. \cite{biggio2013evasion} proposed an initial work for generating adversarial examples. It was a straightforward yet potent gradient-based method that can be systematically applied to assess the vulnerability of numerous widely used classification algorithms to evasion attacks. Authors targeted conventional ML classifiers like SVM and a fully-connected three-layer NN and the performance was evaluated by generating adversarial examples on the MNIST dataset \cite{mnist}.
+
+Szegedy et al. \cite{szegedy2013intriguing} proposed the first work to attack DNNs. Authors formulated an optimized approach for generating minimal distorted adversarial examples. It was found that DNNs often acquire input-output mappings that exhibit a significant degree of discontinuity. The perturbations were discovered by maximizing the prediction error of the network and authors illustrated the networks' sensitivity to subtle changes in input data. The performance was performed on MNIST \cite{mnist} and ImageNet \cite{ImageNet}. Experimental results showed that linear and sigmoid networks achieved $0\%$ accuracy with $\sigma = 0.06$ and $\sigma = 0.063$ but randomly distorted by Gaussian noise with $\sigma = 1$ were detected with $51\%$ accuracy.
+
+Goodfellow et al. \cite{goodfellow2014explaining} proposed a one-step method called Fast Gradient Sign Method (FGSM) for generating adversarial examples efficiently. It computed the gradient of the model's loss with respect to the input and used it to perturb the input in a way that maximizes the loss. Authors explored the concept of transferability, where adversarial examples generated for one model can often be used to deceive other models, even those with different architectures. Authors also focused on adversarial training, which involved augmenting the training dataset with adversarial examples to improve model robustness. The performance was evaluated on MNIST \cite{mnist} and experimental results showed that the proposed FGSM attack achieved an error rate of $86.2\%$ with confidence $97.3\%$ and an error rate of $90.4\%$ with a confidence of $97.8\%$, respectively.  
+
+Kurakin et al. \cite{kurakin2016adversarial} extended the FGSM to a more advanced technique titled Basic Iterative Method (BIM). Unlike the original FGSM, which applied a single perturbation to an input, the BIM applied multiple perturbations iteratively. These perturbations were computed based on the gradients of the loss with respect to the input at each iteration. Each iteration added a small perturbation to the input, gradually increasing its deviation from the original, legitimate input. BIM allowed for fine-tuning of parameters, such as the step size and the number of iterations. The performance was evaluated on samples of ImageNet \cite{ImageNet} and experiments showed that the proposed BIM attack achieved $57.8\%$ accuracy for FSGM with $\epsilon = 8$, while its clean image accuracy was $97.1\%$.
+
+Moosavi et al. \cite{moosavi2016deepfool} examined the decision boundary of a classifier around a specific data point, called DeepFool, aiming to find a path for that data point that leads to a different prediction by the classifier. DeepFool identified the minimum perturbation required to cross the decision boundary. It typically employed an iterative approach. It started with the original data point and iteratively adjusted it while considering the classifier's output at each step. The perturbation was gradually refined to reach the minimum necessary to cause a different prediction. %The primary aim of DeepFool is to determine the smallest possible perturbation that can be applied to the input data point to shift it across the decision boundary, resulting in a change in the classifier's prediction. 
+The proposed method was tested on various DNNs applied to CIFAR-10 \cite{krizhevsky2009learning} and MNIST \cite{mnist} datasets. Experiment results showed that DeepFool achieved $90\%$ misclassification with $l_{\infty} = 0.10$ perturbations and outperformed FGSM with $l_{\infty} = 0.26$ perturbations on MNIST.
+
+Papernot et al. \cite{papernot2016limitations} proposed a technique called Jacobian-based Saliency Map Attack (JSMA), which crafted adversarial examples by exploiting the saliency information derived from the Jacobian matrix of the model. The Jacobian matrix is a matrix of partial derivatives that describes how small changes in input features affect the model's output. Specifically, JSMA focused on the derivatives of the model's predicted class probabilities with respect to the input features. It was often used for targeted adversarial attacks. %It aims to generate adversarial examples that are misclassified into specific target classes chosen by the attacker. 
+JSMA typically employed an iterative approach to craft adversarial examples. %It starts with the original input and iteratively perturbs the most salient features to maximize the likelihood of the target misclassification. 
+The performance was validated on MNIST \cite{mnist} and experiments revealed that DNNs misclassified JSMA attacks in specific targets with $97\%$ success rate while modifying only on
+average $4.02\%$ of the input features of an image.
+
+%It iteratively manipulates the pixels of an image in a greedy manner to affect output of the model. In order to decide which pixels were most crucial for altering and creating adversarial images, it took into account the gradients of the model's output relative to the input. 
+
+%When conducting black-box attacks, the attacker is unaware of the classifier's settings and training data. Only the model's input data and the accompanying outputs may be seen by the attacker. Adversaries can find flaws in the model and use them to launch attacks based on the input-output connection. 
+Papernot et al. \cite{papernot2017practical} proposed the first successful method for taking down DNN classifiers in a black-box environment. Authors executed adversarial attacks on DNN models hosted by online DL application programming interfaces (APIs), starting with MetaMind. Experiments revealed that the DNN hosted by MetaMind misclassified $84.24\%$ of the adversarial examples created using the proposed substitute model. Authors also applied it to models hosted by Amazon and Google and results showed that adversarial examples were misclassified at rates of $96.19\%$ and $88.94\%$, respectively. 
+
+Chen et al. \cite{chen2017zoo} introduced an optimization-based approach specifically designed for conducting black-box attacks on DNNs. The approach was based on zeroth-order optimization techniques, which means that it doesn't rely on access to gradients or model parameters. This made it suitable for black-box settings where such information is not available. Instead of training substitute models, it directly queried the target model for predictions. Experimental results were performed on MNIST, CIFAR-10 and ImageNet datasets. The proposed method achieved at success rates of $100\%$, $100\%$ and $88.9\%$, respectively, for untargeted attacks. It also achieved at success rates of $98.9\%$ on MNIST and $96.8\%$ on CIFAR-10 for targeted attacks.  
+
+Ilyas et al. \cite{ilyas2018black} proposed a method designed for estimating gradient information and leveraged it to generate adversarial examples in a black-box setting. This approach considered scenarios where the attacker was constrained by a limited query budget, meaning they can only make a limited number of queries to the target model. %This reflects real-world situations where querying the model can be costly or restricted. 
+The performance of the proposed method was evaluated on the ImageNet classifier and results showed that $94\%$ success rate even for partial-information.
+
+ Alzantot et al. \cite{alzantot2019genattack} proposed a genetic algorithm called "GenAttack" to generate adversarial examples in a black-box setting. It was not based on the gradient information of the target model. GenAttack evolved input data through generations to discover adversarial perturbations that lead to misclassifications by the target model. It iteratively refined the input data to optimize the adversarial effect. The performance of the proposed algorithm was evaluated on MNIST, CIFAR-10 and ImageNet datasets. Experiments showed that it achieved accuracies $99.5\%$, $80\%$ and $94.4\%$ for MNIST, CIFAR-10 and ImageNet datasets, respectively.   
+
+In semi-white-box attacks, a generative model is first trained in a white-box manner to create adversarial samples. Once the generative model is trained, the attacker can use it to generate adversarial samples in a black-box manner. This approach allows the attacker to leverage the power of generative models to craft adversarial examples. Xiao et al. \cite{xiao2018generating} proposed a novel method called "AdvGAN" for generating adversarial examples using Generative Adversarial Networks (GANs) in semi-white-box settings. AdvGAN leveraged the capabilities of GANs to learn and approximated the distribution of original data instances. Once the generator in AdvGAN was trained, it was efficient at producing adversarial perturbations for any data instance, potentially expediting the process of adversarial training for defense mechanisms. The proposed method was evaluated on the MNIST dataset and experiments showed that it achieved an accuracy of $92.76\%$.
+%Experimental results showed that the adversarial examples generated by AdvGAN exhibited a high rate of success in attacking various target models, even when they are protected by state-of-the-art defense mechanisms. The proposed method achieved an accuracy of $92.76\%$ on the MNIST dataset.
+
+ Goodfellow et al. \cite{goodfellow2014generative} trained a Generative Adversarial Network (GAN) to target a specific model. Adversarial samples were then generated directly from the trained generative model. The proposed GAN comprised with two neural networks: a generator and a discriminator. In this setup, the generator's primary objective was to produce data samples that are virtually indistinguishable from real data. Conversely, the discriminator's role was to discern between actual data and data generated by the generator. These two networks engaged in an adversarial training process, where the generator continually refined its data generation capabilities based on feedback from the discriminator. The performance was on MNIST dataset and it achieved with a standard error of $225\pm2$, the mean computed across all examples. .  
+ 
+ Deb et al. \cite{deb2020advfaces} proposed "Advfaces: Adversarial face
+synthesis" that utilized GAN to craft adversarial face images with minimal perturbations focused on salient facial regions. This approach was designed to manipulate facial images subtly in specific regions of interest that can deceive facial recognition systems. After the training of AdvFaces, it possessed the capability to autonomously produce imperceptible perturbations. Experimental results stated that ``AdvFaces`` attained the success rate of $97.22\%$ for obfuscation attacks and $24.30\%$ for impersonation attacks.
+ 
+ Qiu et al. \cite{qiu2020semanticadv} proposed a method titled "SemanticAdv" based on attribute-conditioned image editing to generate adversarial samples that appear semantically realistic. This method possessed the capability to generate adversarial perturbations that retain semantic meaning, and this generation was guided by a single semantic attribute. Experiment results stated that the proposed attack success rate of attribute-space interpolation $0.08\%$ on ResNet-101 (softmax loss), $0.31\%$ on ResNet-101 (cos loss) and $0.16\%$ on both ResNet-50 (softmax loss) and ResNet-50 (cos loss).
+
+ Wang et al. \cite{Wang2020} introduced Projected Gradient Descent (PGD) attack on the total loss of faster R-CNN. Experimental results demonstrated that adversarial examples lead to Faster R-CNN for misclassification and also mislocalization, i.e., incorrect candidate bounding boxes and it achieved the success rate of $0.90\%$ on Pascal VOC2007 \cite{voc2007} using only 4 iterations.
+
+ Su et al. \cite{Su} introduced a novel technique for creating one-pixel adversarial perturbations, leveraging differential evolution (DE). This approach required minimal adversarial information, making it a black-box attack, and possessed the ability to deceive a broader range of NN architectures. Experimental findings on CIFAR-10 and ImageNet datasets revealed that misclassification of adversarial images into at least one target class can be achieved by modifying just a single pixel. The proposed method achieved relatively high confidence scores in its misclassification, with an average confidence of $74.03\%$ for CIFAR-10 and $22.91\%$ for ImageNet. %a significant portion of natural images in datasets like  can be manipulated to be misclassified into at least one target class by
+
+ Chen et al. \cite{Chen2020} introduced a novel approach called Attack on Attention (AoA) that exploits a common semantic property found in DNNs. AoA demonstrated a significant increase in transferability, particularly when the conventional cross-entropy loss was substituted with the attention loss. Authors applied AoA to generate 50,000 adversarial samples from the ImageNet validation set, effectively challenging numerous NNs and named the resulting dataset "DAmageNet". Thirteen well-trained DNNs were subjected to testing on DAmageNet and all of them exhibited an error rate exceeding $85\%$. Even when employed defense mechanisms or adversarial training, the majority of models still maintained an error rate of over $70\%$ on DAmageNet.
+
+ Liu et al. \cite{Liu2023} introduced a novel approach for sparsely perturbing images, referred to as Robust Gradient-based Low-Frequency search (RGLF). RGLF employed a robust gradient mask (RGM) to identify the semantic regions within the input image. It then utilized a technique known as adaptive frequency search (AFS) to generate low-frequency perturbations as desired. These perturbations were subsequently integrated into the identified semantic regions. The proposed attack  remarkably reduced the detection rates of $25\%$, $36\%$, and $30\%$ of the three detection-based techniques SBD \cite{liu2019sbd}, LiBRe \cite{deng2021libre} and SimCat \cite{moayeri2021}, respectively, on the gradient-based adversarial attacks. 
+
+ He et al. \cite{He2023}  introduced a novel technique Feature-Momentum Adversarial Attack (FMAA) with the aim of improving transferability. The basic idea behind FMAA was the dynamic estimation of a guidance map at each iteration, achieved through a momentum-style approach, in order to disrupt features effectively. The performance was evaluated on ImageNet and experiments results revealed that it achieved the success rates of $90.7\%$, $89.6\%$, $77.9\%$, $86.7\%$, $83.9\%$, $81.9\%$, and $82.2\%$ on Inception-v3, Inception-v4, ResNet-v1-50, ResNet-v2-152 ResNet-v2-50, ResNet-v2-152, VGG-16, and VGG-19, respectively. 
+ 
+
+\subsection{Adversarial Attacks Detection}
+%Adversarial attack detection is one of the main approaches to protect the classifiers from misclassification. These types of methods first discriminate whether the input image is adversarial or original instead of directly predicting the model\textquotesingle s input. Then, if the classifier can discriminate the input image is adversarial, then the input class label will not be predicted. Thus, adversarial attacks detection methods are needed to accurately discriminate the adversarial examples from the originals and reduce the possibility of misclassification by the classifier.
+One of the commonly used strategies to protect classifiers from misclassification is to detect adversarial attacks from the original inputs. Rather than directly predicting the class label for the input, these methods first determine whether the input is an original or an adversarial example. If the classifier detects that the input is adversarial, it refrains from making a class prediction. This approach aims to effectively distinguish between adversarial images and original ones, thereby reducing the chances of misclassification by the classifier. Adversarial attack detection algorithms play a crucial role in this process.
+
+Grosse et al. \cite{grosse2017statistical} proposed a statistical test to differentiate between adversarial examples and the data used to train the model. One of the key advantages of this test was its model-agnostic nature. This was made possible by the kernel function, which enabled to directly apply the test to samples derived from the input data of the ML model. Authors evaluated its performance with distinct datasets: MNIST, DREBIN (containing Android malware samples), and MicroRNA (comprising medical data). More specifically, authors demonstrated that the test can effectively identify sets of 50 adversarial inputs when they deviate from the expected distribution of the dataset. These results remain consistent when applying various techniques for generating adversarial examples, including FGSM and JSMA. 
+
+Gong and Wang \cite{gong2017adversarial} proposed a binary classifier that involved the identification and removal of adversarial data from databases before commencing data processing to ensure the resilience and security of AI workloads. The performance was evaluated on MNIST and CIFAR-10 datasets and experimental results demonstrated that it effectively distinguishes adversarial data from clean data with a high degree of accuracy over $99\%$. 
+
+Metzen et al. \cite{metzen2017detecting} proposed to augment DNNs with a compact ``detector`` subnetwork, which was trained to perform the binary classification task of discerning authentic data from data containing adversarial perturbations. Authors focused on mitigating adversarial perturbations, which had predominantly concentrated on enhancing the robustness of the classification network itself. The performance was evaluated on the CIFAR-10 dataset and results demonstrated that it was remarkably effective at identifying adversarial perturbations, even when these perturbations are nearly imperceptible to human observers.
+
+Hendrycks and Gimpel \cite{hendrycks2016early} proposed a statistical method based on PCA. Authors demonstrated that the variance of adversarial image coefficients was notably higher, particularly for the later principal components. Authors exclusively relied on coefficient variance as their key feature for the detection of adversarial images. The proposed method achieved $100\%$ accuracy to detect adversarial images on Tiny-ImageNet, CIFAR-10 and MNIST datasets for non-iterative FGSM attacks.
+
+Massoli et al. \cite{massoli2021detection} presented a detection method that combined a deep learning model with the k-NN classifier. Authors focused on Face Recognition (FR) and created adversarial examples with the specific objectives of incorrect label assignment and altering deep representation distances in both targeted and untargeted attack scenarios and treated the DNN as a classifier and subsequently, directed attacks towards an FR system where the learning model functions as a feature extractor. The performance was evaluated with CIFAR-10 and MNIST datasets and experimental results demonstrated that the proposed detector achieved an impressive Area Under the Curve (AUC) value of $99\%$ when tasked with the detection of adversarial examples. 
+
+Xie et al. \cite{xie2019feature} improved adversarial robustness by incorporating feature-denoising blocks in NNs. The entire network was trained in an end-to-end fashion. Authors combined with adversarial training with feature denoising networks that significantly improved the state-of-the-art in adversarial robustness, regardless of whether it's in white-box or black-box attack scenarios. The proposed method was evaluated on the ImageNet dataset. Experimental results demonstrated under 10-iteration PGD white-box attacks, where previous techniques achieved only $27.9\%$ accuracy. The proposed approach, on the other hand, achieved $55.7\%$ accuracy. Even when subjected to extreme 2000-iteration PGD white-box attacks, the proposed method attained a high level of accuracy of $42.6\%$. 
+
+Agarwal et al. \cite{agarwal2018image} developed a method based on intensity values of pixels and PCA as features for detecting universal perturbations, using SVM classifier. The performance was evaluated on three datasets: Point and Shoot Challenge (PaSC) database \cite{pasc}, a sub-set of CMU Multi-PIE database \cite{multi} (frontal only view) and the Multiple Encounters Dataset (MEDS-II) \cite{meds}. The proposed method achieved the highest error rate of $2.71\%$ for PaSC, $5.42\%$ for Multi-PIE and $6.82\%$ for MEDS-II.    
+
+Kwon et al. \cite{Hyun2018} proposed a friendly method that can classify adversarial examples correctly. Experiments were conducted on the MNIST and CIFAR-10 datasets. The proposed technique demonstrated a $100\%$ success rate in attacks and a $100\%$ accuracy rate in distinguishing friends, all while introducing minimal distortion. Specifically, for the two different MNIST configurations, the distortion values were 2.18 and 1.54, and for the two respective CIFAR-10 configurations, the distortion values were 49.02 and 27.61.
+
+Lin et al. \cite{Lin2021} introduced a novel design principle for enhancing the robustness of Single Camera Imaging (SCI) systems. This design principle emphasized the importance of locally smooth feature extraction mapping while ensuring information monotonicity. Experiments were conducted on the Dresden Image Dataset and demonstrated the effectiveness of the defense method. It not only significantly enhances the robustness of DNN-based SCI models against adversarial attacks but also delivers identification performance.
+
+Liu and Jin \cite{Liu2021} designed a new measure to evaluate the performance of various NNs under five different adversarial attacks using a multi-objective evolutionary algorithm. Experiments were performed on CIFAR-10 and CIFAR-100 datasets. The proposed method achieved $84.24\%$ and $60.02\%$ accuracy on clean data for CIFAR-10 and CIFAR-100, respectively. It achieved the highest accuracy of $74.77\%$ and $44.52\%$ for BIM adversarial attacks on CIFAR-10 and CIFAR-100, respectively.
+
+Mustafa et al. \cite{mustafa2019image} proposed a defense method based on image super-resolution to enhance adversarial example detection. It effectively mitigated the impact of adversarial perturbations and demonstrated that deep image restoration networks were capable of learning mapping functions that guide off-the-manifold adversarial samples back onto the natural image manifold. As a result, classification accuracy was improved, and the samples were correctly categorized.
+
+Ahmadi et al. \cite{Ali2021} proposed an algorithm for different displacement vectors for clean and adversarial images. Authors trained the detector based on these displacement vectors. Experimental results demonstrated that the proposed method is agnostic to the specific type of attack, allowing it to detect even novel and previously unseen attacks. 
+
+Sadu and Das \cite{sadu2021defense} proposed a defense method that generates adversarial attacks using P-FGSM and provides the extracted features to different types of SVM classifiers for detection. The proposed method is evaluated on the CelebA dataset and experimental results showed that it detects adversarial images from the original with an accuracy of $98.75\%$.
+
+Szűcs and Kiss \cite{Gabor2023} proposed a filtering based on the decision of the detector to enhance the classification accuracy. Additionally, the authors introduced a novel defense method for 2N labeling. This method builds based on the existing NULL labeling approach. While NULL labeling proposes the inclusion of just one new class for adversarial examples, the 2N labeling method takes this a step further by suggesting the addition of twice as many new classes.
+
+ The need for an optimal approach to strengthening DL algorithms against adversarial attacks exhibits a robust framework, yet it necessitates significant effort to fulfill its primary goal. Despite the emergence of numerous new algorithms every year, spanning both attack generation and defense, no algorithm can be asserted to be the final and optimal approach. As new defenses rapidly surface, attackers capitalize on gradients or other subtleties within these defense algorithms to craft their potent low-norm perturbations. This is because the defenses are not absolute. Moreover, the state-of-the-art algorithms have yet to showcase high accuracy when applied to large datasets corrupted by adversarial attacks, or smaller datasets exhibiting a high level of corruption. Therefore, there is still a need for more comprehensive metrics and methods that can effectively capture the pixel-level correlations within an image. These metrics should allow optimized approaches to better emulate how humans perceive and distinguish features within an input image. Such a metric will help optimization algorithms could gain a deeper understanding of the subtle variations added by adversarial attacks in the input data. For a detailed review of adversarial attacks and defenses, \cite{xu2020adversarial, Survey2021, Teng2022, Murali2023, Ashish2023} provided an extensive overview of various techniques and approaches in the field.
+
+In this paper, a new defense method, namely "RobustFace", is proposed against facial adversarial attacks for improving adversarial robustness, which is based on deep restoration networks and feature denoising. Image restoration enhances adversarial images and improves their similarity to original images. RobustFace is different from state-of-the-art methods. First, adversarial images are generated based on P-FGSM, StyleGAN and FLM. These adversarial images are designed to protect the image scenes and effectively mislead classifiers into high-confidence misclassifications. To restore the adversarial images to their original form, image super-resolution and feature denoising are employed. This process aims to bring the adversarial images closer to the original images, thereby improving the robustness of the RobustFace against adversarial attacks. The performance is evaluated on various types of SVM classifiers, RF and k-NN. The results show that RobustFace significantly improves the adversarial robustness. 
+
+\section{Materials and Methods} 
+In this section, we delve into the materials and methods that support the development of the proposed methodology and the execution of the experiments.
+\subsection{Materials}
+\subsubsection{Datasets}
+ Our defense method is evaluated on two real-world datasets \textbf{CelebFaces Attributes Dataset (CelebA)}\cite{liu2015faceattributes} and \textbf{Flickr-Faces-HQ, (FFHQ)}\cite{karras2019style}.
+ \subsubsection{Data Pre-Processing}
+ To evaluate the performance of  RobustFace, two real-world datasets are utilized. The input RGB image is converted into a gray color image using the transformation $0.299*R + 0.587*G + 0.114*B$. The details of the datasets are given as follows: \\
+ \textbf{CelebA:} It is a large-scale face attributes dataset consisting of a total of 202,599 celebrity face images. Each face image in the dataset is annotated with 40 different attribute labels, providing additional information about various facial characteristics. It also includes face images captured in diverse conditions, such as different poses, background clutter and other variations. Moreover, it also exhibits a high level of diversity, containing a total of 10,177 unique identities. It is publicly available at \url{https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html}. \\
+ \textbf{FFHQ:}
+ It consists of a total of 70,000 real faces sourced from Flickr and an equal number of 70,000 fake faces generated using the StyleGAN technique \cite{karras2019style}. It encompasses a significant level of variation in terms of age, ethnicity and image backgrounds. It also includes a wide range of accessories such as eyeglasses, sunglasses, hats and more. It is publicly available at \url{https://github.com/NVlabs/ffhq-dataset}.
+
+ \subsubsection{Data Augmentation}
+ Adversarial images are crafted based on P-FGSM, FLM and StyleGAN techniques. Goodfellow et al. \cite{goodfellow2014explaining} proposed adversarial training that adds adversarial images to the training phase along with the original images to improve the adversarial robustness of the classification model. We add crafted adversarial images along with the original images while training the classification model.  
+
+ \subsection{Methods}
+ This section details the methods used for developing the proposed methodology. 
+ 
+ %The adversarial face images are generated based on attacks P-FGSM\cite{li2019scene}, StyleGAN \cite{karras2019style} and FLM \cite{dabouei2019fast}. The attacks are briefly discussed as follows:
+\subsubsection{P-FGSM Adversarial Attacks}
+ Let an image $I$ and $\hat y_i$ be its true class label of one of the scene types shown in $I$. Let a set of $N$ scene classes of an image be ${y_1, ..., y_i, ..., y_N}$. Then, a multiclass classifier M is applied to image $I$ to generate one-hot vector $y$ of size N-dimensional, which is given by:
+\begin{equation}
+ y = M(I)
+\end{equation}
+where $ y = \{ y_1,..., y_i, ..., y_N \}$ is obtained from a selection on the probability vector $ p = \{p_1,..., p_i,...,p_N \}$. Here, $p_i$ is the probability of the scene class $y_i$ of the image $I$.
+ 
+\begin{equation}
+ p_i = p(y_i/I)
+\end{equation}
+A transformation $T$ is defined such that $\hat I = T(I)$ to induce $M$ to classify the image $I$ with a different scene label:
+\begin{equation}
+y \neq M(\hat I)
+\end{equation}
+The transformation $T$ aims to apply a minimal distortion to the image $I$ in order to make it unnoticeable. Additionally, $T$ should be designed to ensure that the true class label $\hat y_i$ cannot be inferred from the predicted class $M(\hat I)$ or from the probability distribution of the predicted classes. Thus, T is defined as follows:
+\begin{equation}
+ \hat I = T(I) = I + \delta^*_I
+\end{equation}
+where $\delta^*_I$ is an adversarial perturbation. It is generated as follows:
+\begin{equation}
+ \delta^*_I = arg_{\delta_I}max J_M (\theta, I + \delta_I, y)
+\end{equation}
+In the P-FGSM, adversarial images are generated by adaptively targeting a class label $\hat y$ based on the classification probability vector $p$ obtained from the classifier. To achieve a high misclassification rate, P-FGSM takes advantage of the fact that the true class labels are often among the class labels with the highest collective probabilities. It selects the target class label $\hat y$ from a subset of classes based on a specified threshold $\sigma \in [0,1]$. To determine the target class label $\hat y$, the elements of the probability vector $p$ are sorted in non-increasing order and denoted as $ p^{\prime} = \{p^{\prime}_1, ..., p^{\prime}_N \}$. The cumulative probability of each class label is calculated by summing the probabilities up to that class label. 
+
+\begin{equation}
+ \hat y = R (\{y_j: \sum_{i=1}^{j-1} p^{\prime}_j > \sigma \}),
+\end{equation}
+
+where $R$ is a function that selects a class label arbitrarily from the input set and $\sigma$ is a threshold to control the number of classes to select $\hat y$: a higher $\sigma$ denotes a smaller subset of target classes. P-FGSM generates the adversarial image $ \hat I = \hat I_N$ iteratively, starting from $\hat I_0 = I$, as
+\begin{equation}
+ \hat I = \hat I_{N-1} - \epsilon \times sign(\Delta_I J_M(\theta, \hat I_{N-1}, \hat y)),
+\end{equation}
+by increasing the prediction probability of class label $\hat y$ until a desired classification probability or a threshold on the maximum number of iterations is reached.
+
+\subsubsection{FLM Adversarial Attacks} 
+FLM utilizes the gradient of the model's prediction with respect to the facial landmarks to determine the displacement field. By computing the gradient, FLM obtains the direction in which each landmark should be moved to generate the adversarial landmark locations. This iterative process aims to find the optimal displacement field $f$ that manipulates the facial landmarks to create the desired adversarial effect. The adversarial landmark location $x_i^{adv}$ can be obtained by adding the displacement vector $f_i$ to the original landmark $x_i$.
+
+Let $\phi$ be a function for landmarks detection that maps the input face image into a set of $n$ 2D landmark locations $X = \{x_1, x_2,...x_n\}$, where $x_i = (u_i, v_i)$. Let $x^{adv}_i = (u^{adv}_i, v^{adv}_i)$ is the obtained after transformation of $x_i$, and defines the $i^{th}$ landmark location of the corresponding adversarial face image $x^{adv}$. FLM defines flow or displacement field $f$ per landmark to produce the location of the corresponding adversarial landmarks for manipulating the input face image based on $X$. It optimizes the spatial displacement vector $f_i = (\Delta u_i, \Delta v_i)$ for the i-th landmark $x^{adv}_i = (u^{adv}_i, v^{adv}_i)$. It uses the direction of the gradient of the prediction same as FGSM \cite{goodfellow2014explaining} to find the landmark displacement field $f$ in an iterative manner. The adversarial landmark $x^{adv}_i$ can be obtained from the original landmark $x_i$ and the displacement vector $f_i$ as:
+\begin{equation}
+    x^{adv}_i = x_i + f_i,\\
+    (u^{adv}_i, v^{adv}_i) = (u_i + \Delta u_i, v_i + \Delta v_i)
+\end{equation}
+\subsubsection{StyleGAN Attacks}
+Traditionally, the latent code is input to the generator through an initial input layer, essentially serving as the first layer of a feedforward network. StyleGAN takes a departure from this conventional design by eliminating the input layer entirely. Instead, it commences the generation process from a learned constant.  Given a latent code $z$ within the input latent space $Z$, it employed a non-linear mapping network $f: Z → W$ to generate $w \in W$. This modification offers an alternative way to generate data while simplifying the network structure and potentially capturing more meaningful latent representations. That is, it sets the dimensionality of both spaces, the latent space $Z$ and the mapping $f$ to 512. The mapping $f$ is realized using an 8-layer Multilayer Perceptron (MLP). Subsequently, learned affine transformations are employed to specialize $w$ into styles denoted as $y = (y_s, y_b)$. These styles control the operation of Adaptive Instance Normalization (AdaIN) after each convolutional layer within the synthesis network. The AdaIN operation is mathematically defined as follows:
+\begin{equation}
+    AdaIN(x_i, y) = y_{s,i} * (x_i - \mu(x_i)) / \sigma(x_i) + y_{b,i}
+\end{equation}
+
+where, each feature map $x_i$ is normalized individually. It is then scaled and offset using the corresponding scalar components from the style $y$. Therefore, the dimensionality of $y$ is twice the number of feature maps present on that specific layer. 
+
+StyleGAN introduces explicit noise inputs to generate stochastic detail. This process allows for adaptive control over the instance normalization, enabling the synthesis network to generate diverse and expressive outputs.
+
+
+\subsubsection{Bilateral Filter}
+ The bilateral filter (BL) \cite{tomasi1998bilateral} is utilized to denoise the images. It is a denoising technique used to reduce the impact of added perturbations, which are often introduced by adversarial attacks.  It is a non-linear image filtering technique that is specifically designed for images. It is utilized for edge preservation, noise reduction and smoothing. It replaces the intensity value of each pixel in the image with a weighted average of intensity values from nearby pixels. The weights used in the averaging process depend on both the spatial distance and the radiometric differences between pixels.
+ These radiometric differences can include color intensity, depth distance, or other image properties. It is formulated in Eq. \ref{bl:eq:1}:
+ 
+ \begin{equation} \label{bl:eq:1}
+  BF[I]_p = \frac{1}{W_p} \sum_{q \in S} G_{\sigma_s} (\left\| p - q \right\| ) G_{\sigma_r} ( \lvert I_p - I_q \rvert ) I_q
+ \end{equation}
+ 
+ where, $\frac{1}{W_p}$ represents the normalization factor,  $G_{\sigma_s} (\left\| p - q \right\| )$ denotes space weight and $G_{\sigma_r} ( \lvert I_p - I_q \rvert )$ describes the range weight. $\sigma_s$ represents the spatial extent of the kernel, determining the size of the neighborhood around each pixel. A larger value of $\sigma_s$ results in a broader neighborhood, while a smaller value restricts the neighborhood size. On the other hand, $\sigma_r$ is the parameter that controls the minimum amplitude of an edge. %It ensures that only those pixels with intensity values similar to that of the central pixel are considered for blurring. 
+ The BL computes the weighted average of pixel intensities within the neighborhood, and $\sigma_r$ sets a threshold for the similarity between intensities. Pixels with intensity values close to the central pixel's intensity will contribute more to the weighted average, while pixels with significantly different intensities will have less impact. As $\sigma_r$ approaches infinity, the BL behaves more like a Gaussian blur because it allows a broader range of intensities to be included in the weighted average. On the other hand, for smaller values of $\sigma_r$, the BL preserves edges more effectively, resulting in a sharper output image.
+
+
+ %$\sigma_s$ denotes the spatial extent of the kernel, i.e. the size of the neighborhood and  $\sigma_r$ denotes the minimum amplitude of an edge. It ensures that only those pixels with intensity values similar to that of the central pixel are considered for blurring, while sharp intensity changes are maintained. The smaller the value of $\sigma_r$, the sharper the edge. As $\sigma_r$ tends to infinity, the equation tends to a Gaussian blur.
+
+ 
+ %We utilize the bilateral filter , a well-known edge-preserving denoising technique. This filter combines range and domain filtering to smooth the image while preserving edges in a manner similar to human perception. It selectively averages only perceptually similar colors and retains only visually discernible edges, allowing us to achieve denoised images with improved visual quality and edge preservation.
+ 
+\subsubsection{Image Super Resolution}
+Image super-resolution (SR) enhances the resolution of an image from a low-resolution (LR) version to a higher-resolution (HR) version. The LR image can be considered as the result of applying a degradation function, denoted as $D$, to the original HR image. The degradation process can involve various factors such as down-sampling, blurring, compression and the addition of noise ($\sigma$).
+
+The relationship between the HR image $I_y$ and the LR image $I_x$ can be represented as follows:
+
+\begin{equation}
+I_x = D(I_y) + \sigma
+\label{sr:eq:2}
+\end{equation}
+
+where, $D(I_y)$ represents the degradation function applied to the HR image $I_y$ to obtain the LR image $I_x$, and $\sigma$ represents the noise introduced during the degradation process. The objective of image super-resolution is to estimate or reconstruct the original HR image $I_y$ given the LR image $I_x$ and the degradation function $D$, thus recovering lost image details and improving overall resolution.
+
+
+DNNs \cite{kim2016accurate, kim2016deeply} have demonstrated significant advancements in this area, particularly in enhancing peak signal-to-noise ratio (PSNR) in super-resolution problems. We employ an enhanced deep super-resolution network (EDSR) \cite{lim2017enhanced} for this purpose. The EDSR network is built on a ResNet architecture with residual blocks, which has shown remarkable performance in single-image super-resolution tasks. 
+
+\begin{figure*}
+ \center
+  \includegraphics[width=\textwidth]{Figures/WLMPFeatures.png}
+  \caption{The procedure for the extraction of WLMP features.}
+  \label{wlmpf}
+\end{figure*}
+
+
+\begin{figure*}
+ \center
+  \includegraphics[width=\textwidth]{Figures/SRFlowchart.png}
+  \caption{The overall procedure of the RobustFace.}
+  \label{faadsrflowchart}
+\end{figure*}
+
+\subsubsection{WLMP Features}
+The encoded WLMP features are extracted to distinguish adversarial images from the original. Fig. \ref{wlmpf} shows the process of extracting WLMP features for each facial image and is detailed in the following steps:
+\begin{enumerate}
+ \item Divide the input face image into multiple blocks of size $3 \times 3$. Each block represents a local region of the image.
+
+  \item Compute the differences between the center pixel of each block and its adjacent pixels. These differences are calculated as the absolute values of the pixel intensity differences.
+  \item To give higher weightage to the pixels that are closer to the center pixel, sort the obtained differences in increasing order. Then, multiply each absolute difference value by a weight factor of $2^p$, where $p = 0, 1, 2, ..., 7$. This weight factor increases with the proximity of the adjacent pixel to the center pixel. Adjust the resulting value of the center pixel to ensure it falls within the range of 0 to 255. For example, if the computed value exceeds 255, set it to 255.
+  \item Compute the histogram feature vector based on the modified center pixel values across all the blocks in the image. The histogram represents the distribution of the modified pixel values.
+  \item Finally, the extracted feature vectors obtained from the training dataset are provided as input to different types of classifiers. These classifiers learn the presence of adversarial attacks based on the extracted WLMP features and can be used to classify facial images as either original or adversarial.
+\end{enumerate}
+
+\section{Proposed Methodology: RobustFace}
+This section details the procedure of the RobustFace. It generates adversarial images based on P-FGSM, StyleGAN and FLM techniques. Next, it restores adversarial images back to the original space by applying image restoration operations. The encoded WLMP features are extracted from the input face images and provided to the classification model.  RobustFace is trained and tested on two real-world datasets and its performance is evaluated on different types of classification models.
+
+%\subsection{System Model}
+
+\subsection{Architecture and Working}
+\subsubsection{Adversarial Attacks Generation}
+Adversarial images are crafted based on P-FGSM, FLM and StyleGAN. The generated adversarial images are denoised to bring them back into the natural space. The workflow of the RobustFace is as shown in Fig. \ref{faadsrflowchart}.
+
+\subsubsection{Feature Denoising and Deep Image Restoration Networks}
+An effective denoising technique can help to mitigate the effect of added perturbations if not eliminated because all adversarial attacks add noise to an input image in the form of well-crafted small perturbations. Image denoising either in the spatial or frequency domain causes a loss of textural information, which is counterproductive to our goal of producing clean image-like performance on denoised images. Recently, Xie et al. \cite{xie2019feature} denoised the adversarial images using median filters, mean filters, BL to improve adversarial robustness. We denoise adversarial images using BL \cite{tomasi1998bilateral}, which is the most used edge-preserving denoising technique. It combines both range and domain filtering to smooth images and preserves edges in a way similar to human performance. It averages only perceptually similar colors and preserves only perceptually visible edges. 
+
+Image super-resolution (SR) reconstructs a high-resolution image $I^{SR}$ from a low-resolution image $I^{LR}$. Depending on the situation, the relationship between $I^{LR}$ and the original high-resolution image $I^{HR}$ can change. DNNs \cite{kim2016accurate, kim2016deeply} have been shown to significantly enhance peak signal-to-noise ratio (PSNR) in the SR problem. Recently, adversarial attacks were enhanced based on Wavelet denoising and SR \cite{mustafa2019image}. We reconstruct high-resolution images for denoised images based on an enhanced deep super-resolution network (EDSR) \cite{lim2017enhanced}. It consists of residual blocks and ResNet architecture and produced significantly improved performance in the single image SR problem. 
+
+We also combine the BL for denoising and the EDSR network for SR to produce high-resolution images from the adversarial images to further improve the adversarial robustness of the classifiers.
+ 
+\begin{algorithm} 
+  \begin{algorithmic}
+    \State /* Image de-noising Input */ 
+    \State \textbf{Input}: Adversarial image $x^{adv}$ 
+    \State \textbf{Output}: Denoised Image $x_D = D(x^{adv})$
+    \State 1. Convert the RGB image into a gray color image using the transformation $0.299*R + 0.587*G + 0.114*B$.
+    \State 2. Denoise noisy patterns in the image using BL Filter.
+    \State 3. Revert the denoised image back to RGB.\\
+    
+    \State /* Image Super-Resolution (SR) */
+    \State \textbf{Input}: Denoised image $x_D = D(x^{adv})$ 
+    \State \textbf{Output}: Super Resolved Image $x_{SR} = N(x_D)$
+    \State 4. Transform adversarial images back to normal image space using deep image restoration networks: N(.).\\
+    \State /* Adversarial Images Detection  */
+    \State 5. Extract encoded features for the recovered or super-resolved images.
+    \State 6. Forward the extracted features to the classifier model for correct prediction.
+    
+  \end{algorithmic} 
+  \caption{RobustFace with Image Restoration (BL + SR)}
+  \label{alg:algorithm1}
+\end{algorithm}
+
+\subsubsection{Facial Adversarial Attacks Detection}
+Once the adversarial images are restored to the original space, the encoded WLMP features \cite{agarwal2017swapped} are from each facial image.  It is observed that the use of smoothing and blending techniques in digital image editing is common for removing abnormalities in fake or altered face images. These techniques aim to create a more visually consistent appearance by reducing or eliminating noticeable artifacts or inconsistencies. As a result, the texture surfaces in these edited images can often appear mostly unaltered, making it challenging to detect the alterations visually. To handle this issue, the RobustFace leverages WLMP features to highlight the most altered regions of the face images when they are being attacked or altered. The WLMP features encode the differences between a center pixel and its adjacent pixels, giving more weight to the nearest pixels compared to the ones farther away. By doing so, these features can effectively capture and emphasize the local changes in the image, even if the overall texture surfaces appear largely unaltered. The procedure for extracting the WLMP features for each facial image is described as shown in Fig. \ref{wlmpf}. These extracted features are then provided as input to various types of classifiers to discriminate the face adversarial images from the original ones. 
+
+%In such instances, WLMP based features encode the differences obtained by a center pixel with its neighbor pixels are effective to spotlight the most affected portions of face images when they are being switched or adversarial. It weighs the closest pixel to the center more than the other pixel values. That is, it gives the weight reciprocally in proportion to the difference values of the pixels from the center pixel rather than binarizing them. It is also observed that these facial features reduce the low-frequency information while retaining high-frequency information.
+
+
+
+\subsubsection{Algorithm Description}
+Algorithm \ref{alg:algorithm1} highlights the working of ``RobustFace``.  First, denoising is performed on the adversarial face image using BL filter. It smooths the effect of adversarial noise. After that, SR is performed as a mapping function to enhance the visual quality of images, which brings the images in the low-level adversarial space into the original space in high resolution. Then, encoded WLMP features are extracted for each facial image and trained with different types of SVM classifiers, Random Forest and k-NN in an adversarial training fashion. RobustFace minimizes the effect of adversarial perturbations in the image domain and significantly improves the overall performance of the classifier.
+
+\section{Experimentation, Results and Analysis} 
+\subsection{Experimental Setup}
+The experimentation was performed on the system running: Intel Core i5 CPU 2.60 GHz, 16 GB Ram, Ubuntu 22.04 Operating System. All the modules were implemented using Python 3.7 programming language. To test and validate RobustFace, Google Colab Pro+ was utilized.
+ \begin{figure*}
+\centering     %%% not \center
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_12960.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_12968.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_12995.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_13370.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_13397.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_13446.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_13454.jpg}\\
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_13548.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_13589.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_13671.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_12960.png}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_12968.png}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_12995.png}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_13370.png}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_13397.png}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_13446.png}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_13454.png}\\
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_13548.png}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_13589.png}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMAdversarial/flmadversarial_13671.png}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMBil/bilateral_1.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMBil/bilateral_2.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMBil/bilateral_3.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMBil/bilateral_4.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMBil/bilateral_5.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMBil/bilateral_6.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMBil/bilateral_7.jpg}\\
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMBilSR/BilSR_Result_1.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMBilSR/BilSR_Result_2.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMBilSR/BilSR_Result_3.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMBilSR/BilSR_Result_4.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMBilSR/BilSR_Result_5.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMBilSR/BilSR_Result_6.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/FLMBilSR/BilSR_Result_7.jpg}\\
+
+%\subfigure[]{\label{fig:b}\includegraphics[width=40mm]{Figures/81_landmarksPoints.jpg}}
+\caption{Examples of original images, adversarial images generated using FLM, Restored adversarial images by BL Filter, Restored adversarial images by BL+SR.}
+\label{flmresults}
+\end{figure*}
+
+\subsection{Performance Metrics}
+The effectiveness of the RobustFace is compared based on four metrics: Precision, Recall, F1-score and Accuracy. These metrics are computed as follows:
+\begin{equation}
+    Precision = \frac{TP}{TP+FP}
+\end{equation}
+\begin{equation}
+  Recall = \frac{TP}{TP+FN}
+\end{equation}
+\begin{equation}
+    F1-score = 2 \times \frac{Precision \times Recall}{Precision+Recall}
+\end{equation}
+\begin{equation}
+    Accuracy = \frac{TN+TP}{TN+FP+TP+FP+FN}
+\end{equation}
+where, TP, TN, FP and FN correspond to the number of true positives, true negatives, false positives and false negatives, respectively.
+\subsection{Results}
+ The performance of the RobustFace is evaluated on two real-world image datasets. Its performance is demonstrated with different types of classifiers.
+
+ 
+ Fig. \ref{flmresults} shows examples of restored adversarial images for FLM attacks. The first row shows the original facial images and their corresponding FLM attacks are shown in the second row. In the third and fourth rows, the restored adversarial images after BL and BL+SR are shown, respectively. %original face images and their adversarial images generated by using P-FGSM, FLM and StyleGAN methods on CeleA and FFHQ datasets. %The examples of face adversarial images generated by using P-FGSM are shown in Fig. \ref{results}. 
+ Similarly, Fig. \ref{pfgsmresults} shows examples of original face images, their adversarial images generated by P-FGSM, and the restored adversarial images after BL and BL+SR are shown in row-wise, respectively. 
+
+ 
+
+\begin{figure*}
+\centering     %%% not \center
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_12960.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_12968.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_12995.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_13370.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_13397.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_13446.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/Original/original_13454.jpg}\\
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_12960.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_12968.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_12995.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_13370.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_13397.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_13446.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_13454.jpg}\\
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_13548.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_13589.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsm_adversarials/original_13671.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsmBil/bilateral_5.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsmBil/bilateral_9.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsmBil/bilateral_2.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsmBil/bilateral_1.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsmBil/bilateral_3.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsmBil/bilateral_10.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsmBil/bilateral_6.jpg}\\
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsmBil/bilateral_8.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsmBil/bilateral_9.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsmBil/bilateral_4.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsmBilSR/BilSR_Result_5.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsmBilSR/BilSR_Result_9.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsmBilSR/BilSR_Result_2.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsmBilSR/BilSR_Result_1.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsmBilSR/BilSR_Result_3.jpg}
+%\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsmBilSR/BilSR_Result_10.jpg}
+\includegraphics[width=2cm,height=3cm,keepaspectratio]{Figures/SRResults/pfgsmBilSR/BilSR_Result_6.jpg}
+
+%\subfigure[]{\label{fig:b}\includegraphics[width=40mm]{Figures/81_landmarksPoints.jpg}}
+\caption{Examples of original images, adversarial images generated using P-FGSM, Restored adversarial images by Bilateral Filter, Restored adversarial images by BL+SR.}
+\label{pfgsmresults}
+\end{figure*}
+
+
+\begin{table*}[]
+\caption{The overall performance of the RobustFace on CelebA Dataset}
+\label{CeleAPerformance}
+\resizebox{\columnwidth}{!}{\begin{tabular}{|l|l|c|c|l|c|c|c|c|}
+\hline
+\textbf{S.No}       & \textbf{Dataset}         & \multicolumn{1}{l|}{\textbf{Adversarial Attack}} & \multicolumn{1}{l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Image Restoration \\ Networks\end{tabular}}} & \textbf{Classifier} & \multicolumn{1}{l|}{\textbf{Precision}} & \multicolumn{1}{l|}{\textbf{Recall}} & \multicolumn{1}{l|}{\textbf{F1-score}} & \multicolumn{1}{l|}{\textbf{Accuracy(\%)}} \\ \hline
+\multirow{12}{*}{1} & \multirow{12}{*}{CelebA} & \multirow{12}{*}{P-FGSM}                         & \multirow{6}{*}{No}                                                                                 & Linear SVM          & 1.0                                     & 0.98                                 & 0.99                                   & 98.75                                      \\ \cline{5-9} 
+                    &                          &                                                  &                                                                                                     & Polynomial SVM      & 1.0                                     & 0.97                                 & 0.98                                   & 98.5                                       \\ \cline{5-9} 
+                    &                          &                                                  &                                                                                                     & Sigmoid SVM         & 0.72                                    & 0.73                                 & 0.72                                   & 72                                         \\ \cline{5-9} 
+                    &                          &                                                  &                                                                                                     & Gaussian SVM        & 1.0                                     & 0.96                                 & 0.98                                   & 98                                         \\ \cline{5-9} 
+                    &                          &                                                  &                                                                                                     
+                    & Random Forest       & 1.0                                     & 0.97                                 & 0.97                                   & 98.5                                       \\ \cline{5-9} 
+                    &                          &                                                  &                               
+                    & k-NN                & 0.98                                    & 0.97                                 & 0.98                                   & 97.5                                       \\ \cline{4-9} 
+                    &                          &                                                  & \multirow{6}{*}{BL+SR}                                                                              & Linear SVM          & 0.99                                    & 1.0                                  & 1.0                                    & 99                                         \\ \cline{5-9} 
+                    &                          &                                                  &                                                                                                     & Polynomial SVM      & 0.98                                    & 1.0                                  & 0.99                                   & 98                                         \\ \cline{5-9} 
+                    &                          &                                                  &                                                                                                     & Sigmoid SVM         & 0.93                                    & 1.0                                  & 0.96                                   & 93                                         \\ \cline{5-9} 
+                    &                          &                                                  &                                                                                                     & Gaussian SVM        & 0.99                                    & 1.0                                  & 0.99                                   & 99                                         \\ \cline{5-9} 
+                    &                          &                                                  &                                                                                                     
+                    & Random Forest       & 0.99                                    & 1.0                                  & 0.99                                   & 99                                         \\ \cline{5-9} 
+                    &                          &                                                  &                                         
+                    & k-NN                & 0.98                                    & 1.0                                  & 0.99                                   & 98                                         \\ \hline
+\end{tabular}}
+\end{table*}
+
+\begin{table*}[hbt!]
+ \setlength{\tabcolsep}{1pt}
+\caption{The overall performance of the RobustFace on FFHQ Dataset}
+\label{FFHQPerformance}
+\resizebox{\columnwidth}{!}{\begin{tabular}{lllcccccccccccccccccccccccc}
+\cline{1-15}
+\multicolumn{1}{|l|}{\multirow{2}{*}{\textbf{Dataset}}} & \multicolumn{1}{l|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}l@{}}Adversarial\\  Attack\end{tabular}}}} & \multicolumn{1}{l|}{\multirow{2}{*}{\textbf{Classifier}}} & \multicolumn{4}{l|}{\textbf{No Image Restoration Networks}}                                                                                                                                                     & \multicolumn{4}{c|}{\textbf{BL}}                                                                                                                                                                                & \multicolumn{4}{c|}{\textbf{BL+SR}}                                                                                                                                                                             & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\ \cline{4-15}
+\multicolumn{1}{|l|}{}                                  & \multicolumn{1}{l|}{}                                                                                        & \multicolumn{1}{l|}{}                                     & \multicolumn{1}{l|}{\textbf{Precision}} & \multicolumn{1}{l|}{\textbf{Recall}} & \multicolumn{1}{l|}{\textbf{F1-score}} & \multicolumn{1}{l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Accuracy\\ (\%)\end{tabular}}} & \multicolumn{1}{l|}{\textbf{Precision}} & \multicolumn{1}{l|}{\textbf{Recall}} & \multicolumn{1}{l|}{\textbf{F1-score}} & \multicolumn{1}{l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Accuracy\\ (\%)\end{tabular}}} & \multicolumn{1}{l|}{\textbf{Precision}} & \multicolumn{1}{l|}{\textbf{Recall}} & \multicolumn{1}{l|}{\textbf{F1-score}} & \multicolumn{1}{l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Accuracy\\ (\%)\end{tabular}}} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\ \cline{1-15}
+\multicolumn{1}{|l|}{\multirow{12}{*}{FFHQ}}            & \multicolumn{1}{l|}{\multirow{6}{*}{StyleGAN}}                                                               & \multicolumn{1}{l|}{Linear SVM}                           & \multicolumn{1}{c|}{0.71}               & \multicolumn{1}{c|}{0.7}             & \multicolumn{1}{c|}{0.7}               & \multicolumn{1}{c|}{\textbf{70.1}}                                                    & \multicolumn{1}{c|}{0.85}               & \multicolumn{1}{c|}{0.85}            & \multicolumn{1}{c|}{0.85}              & \multicolumn{1}{c|}{\textbf{80.07}}                                                   & \multicolumn{1}{c|}{0.85}               & \multicolumn{1}{c|}{0.85}            & \multicolumn{1}{c|}{0.85}              & \multicolumn{1}{c|}{\textbf{80.07}}                                                   &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      \\ \cline{3-15}
+\multicolumn{1}{|l|}{}                                  & \multicolumn{1}{l|}{}                                                                                        & \multicolumn{1}{l|}{Polynomial SVM}                       & \multicolumn{1}{c|}{0.78}               & \multicolumn{1}{c|}{0.78}            & \multicolumn{1}{c|}{0.78}              & \multicolumn{1}{c|}{\textbf{77.94}}                                                   & \multicolumn{1}{c|}{0.89}               & \multicolumn{1}{c|}{0.89}            & \multicolumn{1}{c|}{0.89}              & \multicolumn{1}{c|}{\textbf{85.29}}                                                   & \multicolumn{1}{c|}{0.89}               & \multicolumn{1}{c|}{0.89}            & \multicolumn{1}{c|}{0.89}              & \multicolumn{1}{c|}{\textbf{85.29}}                                                   &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      \\ \cline{3-15}
+\multicolumn{1}{|l|}{}                                  & \multicolumn{1}{l|}{}                                                                                        & \multicolumn{1}{l|}{Sigmoid SVM}                          & \multicolumn{1}{c|}{0.66}               & \multicolumn{1}{c|}{0.65}            & \multicolumn{1}{c|}{0.65}              & \multicolumn{1}{c|}{\textbf{65.69}}                                                   & \multicolumn{1}{c|}{0.83}               & \multicolumn{1}{c|}{0.82}            & \multicolumn{1}{c|}{0.82}              & \multicolumn{1}{c|}{\textbf{77.12}}                                                   & \multicolumn{1}{c|}{0.83}               & \multicolumn{1}{c|}{0.81}            & \multicolumn{1}{c|}{0.82}              & \multicolumn{1}{c|}{\textbf{76.47}}                                                   &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      \\ \cline{3-15}
+\multicolumn{1}{|l|}{}                                  & \multicolumn{1}{l|}{}                                                                                        & \multicolumn{1}{l|}{Gaussian SVM}                         & \multicolumn{1}{c|}{0.62}               & \multicolumn{1}{c|}{0.56}            & \multicolumn{1}{c|}{0.59}              & \multicolumn{1}{c|}{\textbf{60.29}}                                                   & \multicolumn{1}{c|}{0.8}                & \multicolumn{1}{c|}{0.71}            & \multicolumn{1}{c|}{0.75}              & \multicolumn{1}{c|}{\textbf{68.63}}                                                   & \multicolumn{1}{c|}{0.8}                & \multicolumn{1}{c|}{0.71}            & \multicolumn{1}{c|}{0.75}              & \multicolumn{1}{c|}{\textbf{68.95}}                                                   &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      \\ \cline{3-15}
+\multicolumn{1}{|l|}{}                                  & \multicolumn{1}{l|}{}                                                                                        & \multicolumn{1}{l|}{Random Forest}                        & \multicolumn{1}{c|}{0.66}               & \multicolumn{1}{c|}{0.67}            & \multicolumn{1}{c|}{0.66}              & \multicolumn{1}{c|}{\textbf{66.18}}                                                   & \multicolumn{1}{c|}{0.83}               & \multicolumn{1}{c|}{0.82}            & \multicolumn{1}{c|}{0.82}              & \multicolumn{1}{c|}{\textbf{76.47}}                                                   & \multicolumn{1}{c|}{0.83}               & \multicolumn{1}{c|}{0.81}            & \multicolumn{1}{c|}{0.82}              & \multicolumn{1}{c|}{\textbf{75.82}}                                                   &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      \\ \cline{3-15}
+\multicolumn{1}{|l|}{}                                  & \multicolumn{1}{l|}{}                                                                                        & \multicolumn{1}{l|}{k-NN}                                 & \multicolumn{1}{c|}{0.71}               & \multicolumn{1}{c|}{0.48}            & \multicolumn{1}{c|}{0.57}              & \multicolumn{1}{c|}{\textbf{63.73}}                                                   & \multicolumn{1}{c|}{0.88}               & \multicolumn{1}{c|}{0.73}            & \multicolumn{1}{c|}{0.8}               & \multicolumn{1}{c|}{\textbf{75.16}}                                                   & \multicolumn{1}{c|}{0.88}               & \multicolumn{1}{c|}{0.71}            & \multicolumn{1}{c|}{0.79}              & \multicolumn{1}{c|}{\textbf{74.18}}                                                   &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      \\ \cline{2-15}
+\multicolumn{1}{|l|}{}                                  & \multicolumn{1}{l|}{\multirow{6}{*}{FLM}}                                                                    & \multicolumn{1}{l|}{Linear SVM}                           & \multicolumn{1}{c|}{0.67}               & \multicolumn{1}{c|}{0.58}            & \multicolumn{1}{c|}{0.62}              & \multicolumn{1}{c|}{\textbf{64.66}}                                                   & \multicolumn{1}{c|}{0.78}               & \multicolumn{1}{c|}{0.66}            & \multicolumn{1}{c|}{0.72}              & \multicolumn{1}{c|}{\textbf{68.09}}                                                   & \multicolumn{1}{c|}{0.78}               & \multicolumn{1}{c|}{0.67}            & \multicolumn{1}{c|}{0.72}              & \multicolumn{1}{c|}{\textbf{68.45}}                                                   &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      \\ \cline{3-15}
+\multicolumn{1}{|l|}{}                                  & \multicolumn{1}{l|}{}                                                                                        & \multicolumn{1}{l|}{Polynomial SVM}                       & \multicolumn{1}{c|}{0.65}               & \multicolumn{1}{c|}{0.43}            & \multicolumn{1}{c|}{0.52}              & \multicolumn{1}{c|}{\textbf{60.21}}                                                   & \multicolumn{1}{c|}{0.77}               & \multicolumn{1}{c|}{0.53}            & \multicolumn{1}{c|}{0.63}              & \multicolumn{1}{c|}{\textbf{62.29}}                                                   & \multicolumn{1}{c|}{0.77}               & \multicolumn{1}{c|}{0.53}            & \multicolumn{1}{c|}{0.63}              & \multicolumn{1}{c|}{\textbf{62.49}}                                                   &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      \\ \cline{3-15}
+\multicolumn{1}{|l|}{}                                  & \multicolumn{1}{l|}{}                                                                                        & \multicolumn{1}{l|}{Sigmoid SVM}                          & \multicolumn{1}{c|}{0.56}               & \multicolumn{1}{c|}{0.58}            & \multicolumn{1}{c|}{0.57}              & \multicolumn{1}{c|}{\textbf{55.86}}                                                   & \multicolumn{1}{c|}{0.65}               & \multicolumn{1}{c|}{0.56}            & \multicolumn{1}{c|}{0.6}               & \multicolumn{1}{c|}{\textbf{55.24}}                                                   & \multicolumn{1}{c|}{0.65}               & \multicolumn{1}{c|}{0.57}            & \multicolumn{1}{c|}{0.61}              & \multicolumn{1}{c|}{\textbf{55.68}}                                                   &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      \\ \cline{3-15}
+\multicolumn{1}{|l|}{}                                  & \multicolumn{1}{l|}{}                                                                                        & \multicolumn{1}{l|}{Gaussian SVM}                         & \multicolumn{1}{c|}{0.57}               & \multicolumn{1}{c|}{0.6}             & \multicolumn{1}{c|}{0.58}              & \multicolumn{1}{c|}{\textbf{57.66}}                                                   & \multicolumn{1}{c|}{0.71}               & \multicolumn{1}{c|}{0.71}            & \multicolumn{1}{c|}{0.71}              & \multicolumn{1}{c|}{\textbf{64.81}}                                                   & \multicolumn{1}{c|}{0.71}               & \multicolumn{1}{c|}{0.71}            & \multicolumn{1}{c|}{0.71}              & \multicolumn{1}{c|}{\textbf{64.65}}                                                   &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      \\ \cline{3-15}
+\multicolumn{1}{|l|}{}                                  & \multicolumn{1}{l|}{}                                                                                        & \multicolumn{1}{l|}{Random Forest}                        & \multicolumn{1}{c|}{0.59}               & \multicolumn{1}{c|}{0.62}            & \multicolumn{1}{c|}{0.6}               & \multicolumn{1}{c|}{\textbf{59.26}}                                                   & \multicolumn{1}{c|}{0.71}               & \multicolumn{1}{c|}{0.72}            & \multicolumn{1}{c|}{0.71}              & \multicolumn{1}{c|}{\textbf{66.01}}                                                   & \multicolumn{1}{c|}{0.71}               & \multicolumn{1}{c|}{0.72}            & \multicolumn{1}{c|}{0.71}              & \multicolumn{1}{c|}{\textbf{65.77}}                                                   &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      \\ \cline{3-15}
+\multicolumn{1}{|l|}{}                                  & \multicolumn{1}{l|}{}                                                                                        & \multicolumn{1}{l|}{k-NN}                                 & \multicolumn{1}{c|}{0.59}               & \multicolumn{1}{c|}{1}               & \multicolumn{1}{c|}{0.74}              & \multicolumn{1}{c|}{\textbf{65.52}}                                                   & \multicolumn{1}{c|}{0.67}               & \multicolumn{1}{c|}{0.95}            & \multicolumn{1}{c|}{0.79}              & \multicolumn{1}{c|}{\textbf{69.5}}                                                    & \multicolumn{1}{c|}{0.67}               & \multicolumn{1}{c|}{0.94}            & \multicolumn{1}{c|}{0.78}              & \multicolumn{1}{c|}{\textbf{68.65}}                                                   &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      \\ \cline{1-15}
+                                                        &                                                                                                              &                                                           &                                         &                                      &                                        &                                                                                       &                                         &                                      &                                        &                                                                                       &                                         &                                      &                                        &                                                                                       &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      &                     
+\end{tabular}}
+\end{table*}
+
+
+\subsubsection{Ablation Study}
+%\textit{RobustFace} is trained and tested on two real-world datasets. Its performance is demonstrated with various types of classifiers. \\
+\textbf{Image Super-Resolution:} SR recovers adversarial images from the low-resolution and brings back them into the high-resolution space. The performance of the RobustFace on the CelebA dataset is presented in Table \ref{CeleAPerformance}. The results show that before employing image restoration, the classifiers Linear SVM, Polynomial SVM, Sigmoid SVM, Gaussian SVM, Random Forest and k-NN detect with an accuracy of $98.75\%$, $98.5\%$, $72\%$, $98\%$, $98.5\%$ and $97.5\%$ respectively. Among the classifiers, Linear SVM shows its effectiveness in detecting facial adversarial images from the original with the highest accuracy of $98.75\%$. After employing image restoration such as BL followed by SR (BL+SR) to the adversarial images, the classification accuracy improves from $98.75\%$ to $99\%$ for Linear SVM, from $72\%$ to $93\%$ for Sigmoid SVM, from $98\%$ to $99\%$ for Gaussian SVM, from $98.5\%$ to $99\%$ for Random Forest and from $97.5\%$ to $98\%$ for k-NN on CelebA dataset with P-FGSM adversarial attack.\\
+\textbf{Bilateral Filter:} The denoising technique is effective in mitigating the effect of adversarial attacks if not eliminated because all adversarial attacks add noise to an
+input image in the form of well-crafted small perturbations. The performance of the RobustFace on the FFHQ dataset before and after applying image restorations with adversarial attacks StyleGAN and FLM are shown in Table \ref{FFHQPerformance}. The experimental results also show that BL alone is sufficient sometimes to bring back the adversarial images into the original space, leading the classifier toward correct prediction. On both adversarial attacks StyleGAN and FLM, RobustFace achieves $5-10\%$ improvement in the classification accuracy in almost all classification models even if it achieves low classification accuracy before applying image restoration. Thus, the results show that significant improvement in the detection accuracy after employing the image restorations on the adversarial images. 
+
+\begin{table*}[t!]
+\centering
+\caption{Robustness comparison of intensity-based and geometric-based adversarial attacks on CelebA dataset}
+\label{intensity_geometric}
+\resizebox{\columnwidth}{!}{\begin{tabular}{|c|l|cccc|cccc|}
+\hline
+                                & \multicolumn{1}{c|}{}                                      & \multicolumn{4}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Intensity-based Adversarial Attack\\ (P-FGSM)\end{tabular}}}                                             & \multicolumn{4}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Geometric-based Adversarial Attack\\ (FLM)\end{tabular}}}                                                \\ \cline{3-10} 
+\multirow{-2}{*}{\textbf{S.No}} & \multicolumn{1}{c|}{\multirow{-2}{*}{\textbf{Classifier}}} & \multicolumn{1}{c|}{\textbf{Precision}} & \multicolumn{1}{c|}{\textbf{Recall}} & \multicolumn{1}{c|}{\textbf{F1-score}} & \textbf{Accuracy(\%)}                 & \multicolumn{1}{c|}{\textbf{Precision}} & \multicolumn{1}{c|}{\textbf{Recall}} & \multicolumn{1}{c|}{\textbf{F1-score}} & \textbf{Accuracy(\%)}                 \\ \hline
+1                               & Linear SVM                                                 & \multicolumn{1}{c|}{0.96}               & \multicolumn{1}{c|}{0.97}            & \multicolumn{1}{c|}{0.96}              & {\color[HTML]{000000} \textbf{96.4}}  & \multicolumn{1}{c|}{0.77}               & \multicolumn{1}{c|}{0.75}            & \multicolumn{1}{c|}{0.76}              & {\color[HTML]{000000} \textbf{76.16}} \\ \hline
+2                               & Polynomial SVM                                             & \multicolumn{1}{c|}{0.89}               & \multicolumn{1}{c|}{0.96}            & \multicolumn{1}{c|}{0.92}              & {\color[HTML]{000000} \textbf{91.89}} & \multicolumn{1}{c|}{0.75}               & \multicolumn{1}{c|}{0.79}            & \multicolumn{1}{c|}{0.77}              & {\color[HTML]{000000} \textbf{76.16}} \\ \hline
+3                               & Random Forest                                              & \multicolumn{1}{c|}{0.91}               & \multicolumn{1}{c|}{0.98}            & \multicolumn{1}{c|}{0.94}              & {\color[HTML]{000000} \textbf{94.14}} & \multicolumn{1}{c|}{0.74}               & \multicolumn{1}{c|}{0.8}             & \multicolumn{1}{c|}{0.77}              & {\color[HTML]{000000} \textbf{75.99}} \\ \hline
+4                               & Sigmoid SVM                                                & \multicolumn{1}{c|}{0.52}               & \multicolumn{1}{c|}{0.54}            & \multicolumn{1}{c|}{0.53}              & {\color[HTML]{000000} \textbf{51.35}} & \multicolumn{1}{c|}{0.58}               & \multicolumn{1}{c|}{0.63}            & \multicolumn{1}{c|}{0.6}               & {\color[HTML]{000000} \textbf{58.77}} \\ \hline
+5                               & Gaussian SVM                                               & \multicolumn{1}{c|}{0.91}               & \multicolumn{1}{c|}{0.94}            & \multicolumn{1}{c|}{0.92}              & {\color[HTML]{000000} \textbf{92.34}} & \multicolumn{1}{c|}{0.7}                & \multicolumn{1}{c|}{0.79}            & \multicolumn{1}{c|}{0.74}              & {\color[HTML]{000000} \textbf{72.35}} \\ \hline
+6                               & k-NN                                                       & \multicolumn{1}{c|}{0.87}               & \multicolumn{1}{c|}{0.99}            & \multicolumn{1}{c|}{0.93}              & {\color[HTML]{000000} \textbf{91.89}} & \multicolumn{1}{c|}{0.74}               & \multicolumn{1}{c|}{0.49}            & \multicolumn{1}{c|}{0.59}              & {\color[HTML]{000000} \textbf{65.73}} \\ \hline
+\end{tabular}}
+\end{table*}
+
+\subsubsection{Evaluating Robustness of Intensity-based and Geometric-based Adversarial Attacks}
+Almost all intensity-based attacks augment the input samples with high-frequency components and employ a $l_p-norm$ constraint to regulate the distortion. The adversarial samples may not necessarily sit on the same manifold as the natural samples since the $l_p-norm$ is not a perfect similarity metric. On the other hand, geometric-based adversarial attacks are extremely robust against adversarial training compared to intensity-based adversarial attacks because they target the most important locations in the images using geometric perturbations. Intensity-based and geometric-based adversarial attacks are generated based on P-FGSM \cite{li2019scene} and FLM \cite{dabouei2019fast}, respectively. %The encoded WLMP features are extracted from the images. 
+We evaluate the robustness of intensity-based and geometric-based adversarial attacks by extracting the encoded WLMP features with various classifiers on the CelebA dataset. Geometric-based adversarial attacks are much more resistant against all evaluating classifiers except Sigmoid SVM. The overall statistics for evaluating the robustness of both adversarial attacks are presented in Table \ref{intensity_geometric}.
+
+\begin{figure}
+\centering     %%% not \center
+\subfloat[Precision]{\label{fig:precision}\includegraphics[width=0.45\textwidth]{Figures/Precision.png}}
+\subfloat[Recall]{\label{fig:b}\includegraphics[width=0.45\textwidth]{Figures/Recall.png}}\\
+\subfloat[F1-score]{\label{fig:c}\includegraphics[width=0.45\textwidth]{Figures/F1score.png}}
+\subfloat[Accuracy]{\label{fig:d}\includegraphics[width=0.45\textwidth]{Figures/Accuracy.png}}
+\caption{Performance comparison of the RobustFace in terms of (a) Precision, (b) Recall, (c) F1-score and (d) Accuracy, without image restoration.}
+\label{fig:metrics}
+\end{figure}
+
+
+\begin{figure}
+\centering     %%% not \center
+\subfloat[Precision]{\label{fig:a}\includegraphics[width=0.45\textwidth]{Figures/PrecisionBLSR.png}}
+\subfloat[Recall]{\label{fig:b}\includegraphics[width=0.45\textwidth]{Figures/RecallBLSR.png}}\\
+\subfloat[F1-score]{\label{fig:c}\includegraphics[width=0.45\textwidth]{Figures/F1scoreBLSR.png}}
+\subfloat[Accuracy]{\label{fig:d}\includegraphics[width=0.45\textwidth]{Figures/AccuracyBLSR.png}}
+\caption{Performance comparison of the RobustFace in terms of (a) Precision, (b) Recall, (c) F1-score and (d) Accuracy after image restoration BL+SR.}
+\label{fig:metrics_BLSR}
+\end{figure}
+
+\begin{figure}
+\centering     %%% not \center
+\subfloat[P-FGSM Attacks]{\label{fig:a}\includegraphics[width=0.45\textwidth]{Figures/AccuracyComparison_PFGSM.png}}\\
+\subfloat[FLM Attacks]{\label{fig:b}\includegraphics[width=0.45\textwidth]{Figures/AccuracyComparison_FLM.png}}
+\subfloat[StyleGAN Attacks]{\label{fig:c}\includegraphics[width=0.45\textwidth]{Figures/AccuracyComparison_SGAN.png}}
+\caption{Accuracy comparison of the RobustFace before and after image restoration BL+SR on (a) P-FGSM, (b) FLM, and (c) StyleGAN attacks.}
+\label{fig:accuracy_attacks}
+\end{figure}
+
+
+
+
+
+\subsection{Analysis}
+RobustFace is trained and tested on different types of classifiers. Its performance is demonstrated with various types of adversarial attacks on real-world datasets. \\
+\textbf{Precision:} The results show that the classifiers Linear SVM, Polynomial SVM, Sigmoid SVM, Gaussian SVM, Random Forest and k-NN detect with a precision of $100\%$, $100\%$, $72\%$, $100\%$, $100\%$ and $98\%$, respectively, before employing image restoration and with a precision of $99\%$, $98\%$, $93\%$, $99\%$, $99\%$ and $98\%$, respectively, after employing image restoration BL+SR. RobustFace significantly improves precision from $72\%$ to $93\%$ for Sigmoid SVM. The performance comparison in terms of precision before and after image restoration on P-FGSM, FLM and StyleGAN attacks is shown in Fig. \ref{fig:metrics}$(a)$ and \ref{fig:metrics_BLSR}$(a)$, respectively.\\
+\textbf{Recall:} In terms of recall, the classifiers Linear SVM, Polynomial SVM, Sigmoid SVM, Gaussian SVM, Random Forest and k-NN classifier detect with $98\%$, $97\%$, $73\%$, $96\%$, $97\%$ and $97\%$, respectively, before employing image restoration and with $100\%$ for all classifiers after employing image restoration BL+SR. RobustFace significantly improves recall for all classification models. The recall comparison of classifiers before and after image restoration on P-FGSM, FLM and StyleGAN attacks is shown in Fig. \ref{fig:metrics}$(b)$ and \ref{fig:metrics_BLSR}$(b)$, respectively.\\
+\textbf{F1-score:} The classifiers Linear SVM, Polynomial SVM, Sigmoid SVM, Gaussian SVM, Random Forest and k-NN classifier detect with a F1-score of $99\%$, $98\%$, $72\%$, $98\%$, $97\%$, and $100\%$, respectively, before employing image restoration and with a F1-score of $100\%$, $99\%$, $96\%$, $99\%$, $99\%$, and $99\%$ after employing image restoration BL+SR. The comparison of classifiers in terms of F1-score before and after image restoration on P-FGSM attacks is shown in Fig. \ref{fig:metrics}$(c)$ and \ref{fig:metrics_BLSR}$(c)$, respectively.\\
+\textbf{Accuracy:} The classifiers Linear SVM, Polynomial SVM, Sigmoid SVM, Gaussian SVM, Random Forest and k-NN detect with an accuracy of $98.75\%$, $98.5\%$, $72\%$, $98\%$, $98.5\%$ and $97.5\%$, respectively. Linear SVM shows its effectiveness among all classifiers in detecting facial adversarial images from the original with the highest accuracy of $98.75\%$. After employing image restoration BL+SR to the adversarial images, the accuracy improves from $98.75\%$ to $99\%$ for Linear SVM, from $72\%$ to $93\%$ for Sigmoid SVM, from $98\%$ to $99\%$ for Gaussian SVM, from $98.5\%$ to $99\%$ for Random Forest and from $97.5\%$ to $98\%$ for k-NN on CelebA dataset with P-FGSM adversarial attack. There is a significant improvement in the accuracy of Sigmoid SVM from $72\%$ to $93\%$ after image restoration Bl+SR. The performance comparison in terms of accuracy before and after employing BL+SR on P-FGSM, FLM and StyleGAN attacks is shown in Fig. \ref{fig:metrics}$(d)$ and \ref{fig:metrics_BLSR}$(d)$, respectively.
+
+Table \ref{CeleAPerformance} presents the performance of RobustFace on the CelebA dataset.  Linear SVM shows its effectiveness in detecting facial adversarial images from the original with the highest accuracy of $98.75\%$ among the classifiers. There is a significant improvement in accuracy after employing image restoration to the adversarial images. The classification accuracy improves from $98.75\%$ to $99\%$ for Linear SVM, from $72\%$ to $93\%$ for Sigmoid SVM, from $98\%$ to $99\%$ for Gaussian SVM, from $98.5\%$ to $99\%$ for Random Forest and from $97.5\%$ to $98\%$ for k-NN on CelebA dataset with P-FGSM adversarial attacks.
+
+The results on the FFHQ dataset before and after applying image restoration (BL+SR) with adversarial attacks StyleGAN and FLM are shown in Table \ref{FFHQPerformance}. On the FFHQ dataset with both adversarial attacks StyleGAN and FLM, RobustFace achieves $5-10\%$ improvement in the classification accuracy in almost all classification models even if it achieves low classification accuracy before applying image restoration. It is also observed that BL alone is sufficient sometimes to bring back the adversarial images into the original space, leading the classifier toward correct prediction. Fig. \ref{fig:accuracy_attacks} shows that significant improvement in the detection accuracy of the classifiers on P-FGSM, FLM and StyleGAN attacks after employing the image restoration BL+SR on the adversarial images. 
+
+
+Table \ref{intensity_geometric} shows the performance comparison of various classifiers for evaluating the robustness of intensity-based and geometric-based adversarial attacks. P-FGSM \cite{li2019scene} and FLM \cite{dabouei2019fast} attacks are used to generate intensity-based and geometric-based adversarial attacks, respectively. And, then the encoded WLMP features are extracted and provided to various classifiers to evaluate their robustness on the CelebA dataset. Linear SVM achieves an accuracy of $96.4\%$ for P-FGSM attacks but achieves an accuracy of $76.16\%$ for FLM attacks. Except for Sigmoid SVM, geometric-based adversarial attacks are shown more resistant against all evaluating classifiers over intensity-based adversarial attacks. 
+
+\section{Conclusion and Future Scope}
+A new defense method, namely RobustFace, for improving robustness against facial adversarial attacks is proposed based on deep image restoration networks. RobustFace generates a well-protected version of adversarial face images based on P-FGSM, FLM and StyleGAN, which can mislead the classifier to misclassification with high confidence. Image restorations such as BL followed by SR are performed on adversarial images to enhance the visual quality of images, which brings back the low-resolution adversarial images into the high-resolution original space. The encoded features are extracted for the recovered images and trained on various types of classifiers. The results are demonstrated on two real-world datasets for different adversarial attacks. The experimental results show that there is a significant improvement in the classification accuracy after employing the image restoration in the classification models and also geometric-based adversarial attacks are more robust to defend than intensity-based adversarial facial adversarial attacks.    
+
+In the near future, we focus on various denoising filters and deep image super-resolution networks to improve adversarial robustness further for different adversarial attacks. In addition, it is also planned to investigate whether SR or denoising alone is sufficient for all types of DL-based adversarial attacks.\\
+
+\noindent
+\textbf{Declarations:}\\
+\textbf{Ethics Approval:} No Human subjects or animals are involved in the research.\\
+\textbf{Consent to Participate:} All authors have mutually consented to participate.\\
+\textbf{Consent to Publish:} All the authors have consented to the Journal to publish this paper. \\
+\textbf{Data Availability Statement:} Authors declare that all the data being used in the design and production cum layout of the manuscript is declared in the manuscript. \\
+\textbf{Funding Statement:} The authors received no specific funding for this study.\\
+\textbf{Conflicts of Interest:} The authors declare that they have no conflicts of interest to report regarding the present study.
+
+
+%%===========================================================================================%%
+%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+%% system, please include the references within the manuscript file itself. You may do this  %%
+%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+%%===========================================================================================%%
+\bibliographystyle{sn-basic}
+%\typeof{}
+\bibliography{sn-bibliography}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
+
+%% Default %%
+\input {sn-sample-bib}
+
+\end{document}

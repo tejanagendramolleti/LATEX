@@ -1,0 +1,46 @@
+\begin{thebibliography}{9}
+
+\bibitem{bib1} Lee, Hansang, Minseok Park, and Junmo Kim. "Cephalometric landmark detection in dental x-ray images using convolutional neural networks." In Medical Imaging 2017: Computer-Aided Diagnosis, vol. 10134, p. 101341W. International Society for Optics and Photonics, 2017.
+
+\bibitem{lindner2016fully} Lindner, Claudia, Ching-Wei Wang, Cheng-Ta Huang, Chung-Hsing Li, Sheng-Wei Chang, and Tim F. Cootes. "Fully automatic system for accurate localisation and analysis of cephalometric landmarks in lateral cephalograms." Scientific reports 6, no. 1 (2016): 1-10.
+
+\bibitem{PAYER} Payer, Christian, Darko Štern, Horst Bischof, and Martin Urschler. "Integrating spatial configuration into heatmap regression based CNNs for landmark localization." Medical image analysis 54 (2019): 207-219.
+
+\bibitem{noothout2020deep} Noothout, Julia MH, Bob D. De Vos, Jelmer M. Wolterink, Elbrich M. Postma, Paul AM Smeets, Richard AP Takx, Tim Leiner, Max A. Viergever, and Ivana Išgum. "Deep learning-based regression and classification for automatic landmark localization in medical images." IEEE transactions on medical imaging 39, no. 12 (2020): 4011-4022.
+
+\bibitem{oh2020deep} Oh, Kanghan, Il-Seok Oh, and Dae-Woo Lee. "Deep anatomical context feature learning for Cephalometric landmark detection." IEEE Journal of Biomedical and Health Informatics 25, no. 3 (2020): 806-817.
+
+\bibitem{wang2015evaluation} Wang, Ching-Wei, Cheng-Ta Huang, Meng-Che Hsieh, Chung-Hsing Li, Sheng-Wei Chang, Wei-Cheng Li, Rémy Vandaele et al. "Evaluation and comparison of anatomical landmark detection methods for cephalometric x-ray images: a grand challenge." IEEE transactions on medical imaging 34, no. 9 (2015): 1890-1900.
+
+\bibitem{kim2020web} Kim, Hannah, Eungjune Shim, Jungeun Park, Yoon-Ji Kim, Uilyong Lee, and Youngjun Kim. "Web-based fully automated cephalometric analysis by deep learning." Computer methods and programs in biomedicine 194 (2020): 105513.
+
+\bibitem{nishimoto2019personal} Nishimoto, Soh, Yohei Sotsuka, Kenichiro Kawai, Hisako Ishise, and Masao Kakibuchi. "Personal computer-based cephalometric landmark detection with deep learning, using cephalograms on the internet." Journal of Craniofacial Surgery 30, no. 1 (2019): 91-95.
+
+\bibitem{arik2017fully} Arik, Sercan Ö., Bulat Ibragimov, and Lei Xing. "Fully automated quantitative cephalometry using convolutional neural networks." Journal of Medical Imaging 4, no. 1 (2017): 014501.
+
+\bibitem{chen2019cephalometric} Chen, Runnan, Yuexin Ma, Nenglun Chen, Daniel Lee, and Wenping Wang. "Cephalometric landmark detection by attentive feature pyramid fusion and regression-voting." In International Conference on Medical Image Computing and Computer-Assisted Intervention, pp. 873-881. Springer, Cham, 2019.
+
+\bibitem{qian2020cephann} Qian, Jiahong, Weizhi Luo, Ming Cheng, Yubo Tao, Jun Lin, and Hai Lin. "CephaNN: A multi-head attention network for cephalometric landmark detection." IEEE Access 8 (2020): 112633-112641.
+
+\bibitem{wang2018automatic} Wang, Shumeng, Huiqi Li, Jiazhi Li, Yanjun Zhang, and Bingshuang Zou. "Automatic analysis of lateral cephalograms based on multiresolution decision tree regression voting." Journal of healthcare engineering 2018 (2018).
+
+\bibitem{zeng2021cascaded} Zeng, Minmin, Zhenlei Yan, Shuai Liu, Yanheng Zhou, and Lixin Qiu. "Cascaded convolutional networks for automatic cephalometric landmark detection." Medical Image Analysis 68 (2021): 101904.
+
+\bibitem{lee2020automated} Lee, Jeong-Hoon, Hee-Jin Yu, Min-ji Kim, Jin-Woo Kim, and Jongeun Choi. "Automated cephalometric landmark detection with confidence regions using Bayesian convolutional neural networks." BMC oral health 20, no. 1 (2020): 1-10.
+
+\bibitem{song2020automatic} Song, Yu, Xu Qiao, Yutaro Iwamoto, and Yen-wei Chen. "Automatic cephalometric landmark detection on X-ray images using a deep-learning method." Applied Sciences 10, no. 7 (2020): 2547.
+
+\bibitem{proffit2006contemporary} Proffit, William R., Henry W. Fields Jr, and David M. Sarver. Contemporary orthodontics. Elsevier Health Sciences, 2006.
+
+\bibitem{vandaele2014automatic} Vandaele, Rémy, Raphaël Marée, Sébastien JODOGNE, and Pierre Geurts. "Automatic cephalometric x-ray landmark detection challenge 2014: A tree-based algorithm." ISBI, 2014.
+
+\bibitem{mirzaalian2014automatic} Mirzaalian, Hengameh, and Ghassan Hamarneh. "Automatic globally-optimal pictorial structures with random decision forest based likelihoods for cephalometric x-ray landmark detection." Proc. ISBI International (a) Landmark 4 (2014).
+
+\bibitem{chen2014fully} Chen, C., and G. Zheng. "Fully automatic landmark detection in cephalometric x-ray images by data-driven image displacement estimation." In Proc. ISBI International Symposium on Biomedical Imaging. 2014.
+
+\bibitem{lindner2015fully} Lindner, Claudia, and Tim F. Cootes. "Fully automatic cephalometric evaluation using random forest regression-voting." In IEEE International Symposium on Biomedical Imaging (ISBI) 2015–Grand Challenges in Dental X-ray Image Analysis–Automated Detection and Analysis for Diagnosis in Cephalometric X-ray Image. 2015.
+
+\bibitem{wang2016benchmark} Wang, Ching-Wei, Cheng-Ta Huang, Jia-Hong Lee, Chung-Hsing Li, Sheng-Wei Chang, Ming-Jhih Siao, Tat-Ming Lai et al. "A benchmark for comparison of dental radiography analysis algorithms." Medical image analysis 31 (2016): 63-76.
+
+\end{thebibliography}
+
